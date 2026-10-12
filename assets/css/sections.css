@@ -205,11 +205,13 @@ details.more summary:focus-visible { outline: 2px solid var(--accent); outline-o
 .gp-frames figure.txt .fr { padding: 8px 10px; background: var(--beige); font: italic 14px/1.45 var(--serif); color: var(--ink-2); }
 .gp-frames figcaption { margin-top: 3px; font-size: 11px; line-height: 1.35; color: var(--muted); }
 .gp-track { grid-column: 1 / -1; }
-.gp-track .tl { position: relative; height: 34px; }
+.gp-track .tl { position: relative; height: 34px; container-type: inline-size; }
 .gp-track .ph { position: absolute; top: 0; height: 12px; border-radius: 4px; }
 .gp-track .ph b { position: absolute; top: 15px; left: 0; font: 700 10.5px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .gp-track .ph.exp { left: 0; background: var(--sage); }
 .gp-track .ph.req { background: var(--beige); }
+/* when the experience band is narrower than its label, the request label moves right to clear it */
+.gp-track .ph.req b { left: max(0px, calc(84px - var(--expw, 100) * 1cqw)); }
 .gp-track .sg { position: absolute; top: 3px; height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--ink) 28%, transparent); }
 .gp-track .sg.on { background: var(--ink); }
 .gp-track .sg.done { background: color-mix(in srgb, var(--ink) 55%, transparent); }

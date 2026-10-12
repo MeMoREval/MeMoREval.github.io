@@ -57,7 +57,7 @@
       const reqStart = instr.length > 1 ? instr[1].t0 : dur;
       const skills = (t.events || []).filter((e) => e.kind === 'skill');
       const seg = (e) => `<span class="sg${e.ok === false ? ' bad' : ''}" style="left:${(e.t0 / dur) * 100}%;width:${(Math.max(0.15, e.t1 - e.t0) / dur) * 100}%" title="${esc(e.label)}"></span>`;
-      track.innerHTML = `<div class="tl"><span class="ph exp" style="width:${(reqStart / dur) * 100}%"><b>Experience</b></span><span class="ph req" style="left:${(reqStart / dur) * 100}%;width:${((dur - reqStart) / dur) * 100}%"><b>Request</b></span>
+      track.innerHTML = `<div class="tl"><span class="ph exp" style="width:${(reqStart / dur) * 100}%"><b>Experience</b></span><span class="ph req" style="left:${(reqStart / dur) * 100}%;width:${((dur - reqStart) / dur) * 100}%;--expw:${(reqStart / dur) * 100}"><b>Request</b></span>
         ${skills.map(seg).join('')}${(t.memory || []).filter((m) => m.src).map((m) => `<span class="mm" style="left:${(m.t / dur) * 100}%" title="Saved to memory"></span>`).join('')}<span class="ph-now"></span></div>`;
       evEls = [...track.querySelectorAll('.sg')].map((el, k) => ({ el, e: skills[k] }));
       nowEl = track.querySelector('.ph-now');
