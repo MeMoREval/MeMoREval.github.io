@@ -1,0 +1,264 @@
+[
+ {
+  "segments": [
+   {
+    "src_end": 9.9,
+    "out_end": 1.733,
+    "out_start": 0,
+    "speed": 1.5,
+    "src_start": 7.3
+   },
+   {
+    "src_end": 20.2,
+    "out_end": 5.853,
+    "out_start": 1.733,
+    "speed": 2.5,
+    "src_start": 9.9
+   },
+   {
+    "src_end": 73.7,
+    "out_end": 7.028,
+    "out_start": 5.853,
+    "speed": 4,
+    "src_start": 69
+   },
+   {
+    "src_end": 75,
+    "out_end": 7.191,
+    "out_start": 7.028,
+    "speed": 8,
+    "src_start": 73.7
+   },
+   {
+    "src_end": 90.2,
+    "out_end": 8.458,
+    "out_start": 7.191,
+    "speed": 12,
+    "src_start": 75
+   },
+   {
+    "src_end": 91.5,
+    "out_end": 8.62,
+    "out_start": 8.458,
+    "speed": 8,
+    "src_start": 90.2
+   },
+   {
+    "src_end": 93.1,
+    "out_end": 9.02,
+    "out_start": 8.62,
+    "speed": 4,
+    "src_start": 91.5
+   },
+   {
+    "src_end": 100.5,
+    "out_end": 10.245,
+    "out_start": 9.02,
+    "speed": 4,
+    "src_start": 95.6
+   },
+   {
+    "src_end": 110.1,
+    "out_end": 12.145,
+    "out_start": 10.245,
+    "speed": 4,
+    "src_start": 102.5
+   },
+   {
+    "src_end": 137.3,
+    "out_end": 16.705,
+    "out_start": 12.145,
+    "speed": 2.5,
+    "src_start": 125.9
+   },
+   {
+    "src_end": 211.8,
+    "out_end": 17.625,
+    "out_start": 16.705,
+    "speed": 2.5,
+    "src_start": 209.5
+   },
+   {
+    "src_end": 214.3,
+    "out_end": 18.125,
+    "out_start": 17.625,
+    "speed": 5,
+    "src_start": 211.8
+   },
+   {
+    "src_end": 225,
+    "out_end": 22.405,
+    "out_start": 18.125,
+    "speed": 2.5,
+    "src_start": 214.3
+   },
+   {
+    "src_end": 251.6,
+    "out_end": 24.138,
+    "out_start": 22.405,
+    "speed": 1.5,
+    "src_start": 249
+   }
+  ],
+  "name": "coke_experience_v2",
+  "duration_out": 24.138
+ },
+ {
+  "segments": [
+   {
+    "src_end": 22,
+    "out_end": 3.7,
+    "out_start": 0,
+    "speed": 2,
+    "src_start": 14.6
+   },
+   {
+    "src_end": 34.9,
+    "out_end": 8.86,
+    "out_start": 3.7,
+    "speed": 2.5,
+    "src_start": 22
+   },
+   {
+    "src_end": 69.6,
+    "out_end": 10.01,
+    "out_start": 8.86,
+    "speed": 4,
+    "src_start": 65
+   },
+   {
+    "src_end": 80,
+    "out_end": 11.785,
+    "out_start": 10.01,
+    "speed": 4,
+    "src_start": 72.9
+   },
+   {
+    "src_end": 92,
+    "out_end": 14.235,
+    "out_start": 11.785,
+    "speed": 4,
+    "src_start": 82.2
+   },
+   {
+    "src_end": 99.4,
+    "out_end": 15.56,
+    "out_start": 14.235,
+    "speed": 4,
+    "src_start": 94.1
+   },
+   {
+    "src_end": 107.1,
+    "out_end": 16.71,
+    "out_start": 15.56,
+    "speed": 4,
+    "src_start": 102.5
+   },
+   {
+    "src_end": 138.6,
+    "out_end": 24.03,
+    "out_start": 16.71,
+    "speed": 2.5,
+    "src_start": 120.3
+   },
+   {
+    "src_end": 151.2,
+    "out_end": 25.23,
+    "out_start": 24.03,
+    "speed": 1.5,
+    "src_start": 149.4
+   }
+  ],
+  "name": "coke_execution_v2",
+  "duration_out": 25.23
+ },
+ {
+  "segments": [
+   {
+    "src_end": 25.2,
+    "out_end": 0.8,
+    "out_start": 0,
+    "speed": 2,
+    "src_start": 23.6
+   },
+   {
+    "src_end": 39.82,
+    "out_end": 5.673,
+    "out_start": 0.8,
+    "speed": 3,
+    "src_start": 25.2
+   },
+   {
+    "src_end": 120.3,
+    "out_end": 16.791,
+    "out_start": 5.673,
+    "speed": 4,
+    "src_start": 75.83
+   },
+   {
+    "src_end": 122.9,
+    "out_end": 17.224,
+    "out_start": 16.791,
+    "speed": 6,
+    "src_start": 120.3
+   },
+   {
+    "src_end": 149.13,
+    "out_end": 21.901,
+    "out_start": 17.224,
+    "speed": 3,
+    "src_start": 135.1
+   },
+   {
+    "src_end": 207,
+    "out_end": 27.089,
+    "out_start": 21.901,
+    "speed": 3.5,
+    "src_start": 188.84
+   }
+  ],
+  "name": "lemon_experience_v2",
+  "duration_out": 27.089
+ },
+ {
+  "segments": [
+   {
+    "src_end": 17.3,
+    "out_end": 1.15,
+    "out_start": 0,
+    "speed": 2,
+    "src_start": 15
+   },
+   {
+    "src_end": 26.3,
+    "out_end": 4.15,
+    "out_start": 1.15,
+    "speed": 3,
+    "src_start": 17.3
+   },
+   {
+    "src_end": 89.86,
+    "out_end": 13.985,
+    "out_start": 4.15,
+    "speed": 4,
+    "src_start": 50.52
+   },
+   {
+    "src_end": 120.5,
+    "out_end": 20.662,
+    "out_start": 13.985,
+    "speed": 3,
+    "src_start": 100.47
+   },
+   {
+    "src_end": 131.9,
+    "out_end": 22.167,
+    "out_start": 20.662,
+    "speed": 2,
+    "src_start": 128.89
+   }
+  ],
+  "name": "lemon_execution_v2",
+  "duration_out": 22.167
+ }
+]

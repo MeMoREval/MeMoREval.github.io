@@ -1,0 +1,1096 @@
+{
+ "headline": {
+  "rows": [
+   {
+    "key": "text",
+    "label": "text",
+    "task_pct": {
+     "mean": 39.371,
+     "lo": 38.868,
+     "hi": 39.623
+    },
+    "info_pct": {
+     "mean": 52.956,
+     "lo": 51.321,
+     "hi": 54.717
+    },
+    "action_pct": {
+     "mean": 51.449,
+     "lo": 50.87,
+     "hi": 52.609
+    },
+    "write_k_per_step": {
+     "mean": 2.4789,
+     "lo": 2.449,
+     "hi": 2.4959
+    },
+    "read_k_per_info_request": {
+     "mean": 4.3776,
+     "lo": 4.3114,
+     "hi": 4.4302
+    },
+    "read_k_per_action_request": {
+     "mean": 7.5819,
+     "lo": 7.4335,
+     "hi": 7.7748
+    },
+    "read_k_per_info_success": 8.2665,
+    "read_k_per_action_success": 14.7367,
+    "calls_per_request": 1.0074,
+    "reasoning_k_per_request": 4.212
+   },
+   {
+    "key": "d64",
+    "label": "desc@64",
+    "task_pct": {
+     "mean": 55.723,
+     "lo": 53.585,
+     "hi": 56.981
+    },
+    "info_pct": {
+     "mean": 70.189,
+     "lo": 69.811,
+     "hi": 70.943
+    },
+    "action_pct": {
+     "mean": 64.058,
+     "lo": 61.304,
+     "hi": 66.522
+    },
+    "write_k_per_step": {
+     "mean": 2.9545,
+     "lo": 2.9176,
+     "hi": 3.0034
+    },
+    "read_k_per_info_request": {
+     "mean": 7.1288,
+     "lo": 7.0733,
+     "hi": 7.1933
+    },
+    "read_k_per_action_request": {
+     "mean": 10.5992,
+     "lo": 10.4907,
+     "hi": 10.7825
+    },
+    "read_k_per_info_success": 10.1567,
+    "read_k_per_action_success": 16.5463,
+    "calls_per_request": 2.6855,
+    "reasoning_k_per_request": 4.0271
+   },
+   {
+    "key": "d256",
+    "label": "desc@256",
+    "task_pct": {
+     "mean": 59.497,
+     "lo": 58.113,
+     "hi": 61.509
+    },
+    "info_pct": {
+     "mean": 73.459,
+     "lo": 70.943,
+     "hi": 75.094
+    },
+    "action_pct": {
+     "mean": 67.536,
+     "lo": 66.522,
+     "hi": 68.696
+    },
+    "write_k_per_step": {
+     "mean": 3.1368,
+     "lo": 3.1243,
+     "hi": 3.152
+    },
+    "read_k_per_info_request": {
+     "mean": 6.1874,
+     "lo": 6.1681,
+     "hi": 6.2248
+    },
+    "read_k_per_action_request": {
+     "mean": 9.6788,
+     "lo": 9.4432,
+     "hi": 9.9294
+    },
+    "read_k_per_info_success": 8.4229,
+    "read_k_per_action_success": 14.3312,
+    "calls_per_request": 2.4074,
+    "reasoning_k_per_request": 3.4395
+   },
+   {
+    "key": "d1024",
+    "label": "desc@1024",
+    "task_pct": {
+     "mean": 60.252,
+     "lo": 58.868,
+     "hi": 61.132
+    },
+    "info_pct": {
+     "mean": 73.208,
+     "lo": 71.698,
+     "hi": 73.962
+    },
+    "action_pct": {
+     "mean": 71.014,
+     "lo": 70.0,
+     "hi": 72.609
+    },
+    "write_k_per_step": {
+     "mean": 3.2232,
+     "lo": 3.2079,
+     "hi": 3.2331
+    },
+    "read_k_per_info_request": {
+     "mean": 5.8248,
+     "lo": 5.728,
+     "hi": 5.881
+    },
+    "read_k_per_action_request": {
+     "mean": 9.6379,
+     "lo": 9.5947,
+     "hi": 9.7216
+    },
+    "read_k_per_info_success": 7.9566,
+    "read_k_per_action_success": 13.5718,
+    "calls_per_request": 2.3145,
+    "reasoning_k_per_request": 3.3147
+   },
+   {
+    "key": "frames",
+    "label": "frames",
+    "task_pct": {
+     "mean": 69.56,
+     "lo": 67.925,
+     "hi": 71.321
+    },
+    "info_pct": {
+     "mean": 81.509,
+     "lo": 81.132,
+     "hi": 82.264
+    },
+    "action_pct": {
+     "mean": 76.522,
+     "lo": 73.478,
+     "hi": 78.696
+    },
+    "write_k_per_step": {
+     "mean": 2.4789,
+     "lo": 2.449,
+     "hi": 2.4959
+    },
+    "read_k_per_info_request": {
+     "mean": 5.5693,
+     "lo": 5.3239,
+     "hi": 5.8229
+    },
+    "read_k_per_action_request": {
+     "mean": 9.6894,
+     "lo": 9.3656,
+     "hi": 9.8775
+    },
+    "read_k_per_info_success": 6.8328,
+    "read_k_per_action_success": 12.6622,
+    "calls_per_request": 2.0741,
+    "reasoning_k_per_request": 3.1042
+   },
+   {
+    "key": "frames+graph",
+    "label": "frames+graph",
+    "task_pct": {
+     "mean": 74.717,
+     "lo": 73.208,
+     "hi": 75.849
+    },
+    "info_pct": {
+     "mean": 84.906,
+     "lo": 83.774,
+     "hi": 85.66
+    },
+    "action_pct": {
+     "mean": 81.739,
+     "lo": 79.13,
+     "hi": 84.348
+    },
+    "write_k_per_step": {
+     "mean": 2.4789,
+     "lo": 2.449,
+     "hi": 2.4959
+    },
+    "read_k_per_info_request": {
+     "mean": 6.3907,
+     "lo": 6.3056,
+     "hi": 6.4581
+    },
+    "read_k_per_action_request": {
+     "mean": 10.691,
+     "lo": 10.2322,
+     "hi": 11.0873
+    },
+    "read_k_per_info_success": 7.5269,
+    "read_k_per_action_success": 13.0794,
+    "calls_per_request": 2.4875,
+    "reasoning_k_per_request": 3.1037
+   }
+  ],
+  "derived": {
+   "frames_write_saving_vs_desc64_pct": 16.1,
+   "frames_write_saving_vs_desc256_pct": 20.97,
+   "frames_write_saving_vs_desc1024_pct": 23.09,
+   "frames_fewer_tokens_per_info_success_vs_desc1024_pct": 14.12,
+   "frames_fewer_tokens_per_action_success_vs_desc1024_pct": 6.7
+  },
+  "figure_guides": {
+   "info": [
+    6,
+    8,
+    10
+   ],
+   "action": [
+    12,
+    14,
+    16
+   ]
+  }
+ },
+ "controls": [
+  {
+   "key": "no-memory",
+   "label": "no memory",
+   "task_pct": 5.66,
+   "tasks_solved": 3,
+   "tasks": 53,
+   "info_pct": 17,
+   "action_pct": 0,
+   "source": "paper Table 3 (rounded)"
+  },
+  {
+   "key": "oracle",
+   "label": "full information",
+   "task_pct": 100.0,
+   "tasks_solved": 53,
+   "tasks": 53,
+   "info_pct": 100,
+   "action_pct": 100
+  }
+ ],
+ "categories": {
+  "rows": [
+   {
+    "key": "appearance_binding",
+    "label": "Appearance binding",
+    "tasks": 10,
+    "success_pct": {
+     "d1024": 54.667,
+     "frames": 72.667,
+     "frames+graph": 69.333
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 18.0,
+      "ci95_lo": 8.667,
+      "ci95_hi": 27.33
+     },
+     "frames+graph - frames": {
+      "diff_pp": -3.333,
+      "ci95_lo": -8.0,
+      "ci95_hi": 1.333
+     }
+    }
+   },
+   {
+    "key": "spatial_configuration",
+    "label": "Spatial configuration",
+    "tasks": 11,
+    "success_pct": {
+     "d1024": 55.758,
+     "frames": 67.273,
+     "frames+graph": 76.97
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 11.515,
+      "ci95_lo": -3.03,
+      "ci95_hi": 27.894
+     },
+     "frames+graph - frames": {
+      "diff_pp": 9.697,
+      "ci95_lo": 2.424,
+      "ci95_hi": 16.364
+     }
+    }
+   },
+   {
+    "key": "object_location",
+    "label": "Object location",
+    "tasks": 11,
+    "success_pct": {
+     "d1024": 76.97,
+     "frames": 89.697,
+     "frames+graph": 98.182
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 12.727,
+      "ci95_lo": 2.424,
+      "ci95_hi": 24.242
+     },
+     "frames+graph - frames": {
+      "diff_pp": 8.485,
+      "ci95_lo": 0.0,
+      "ci95_hi": 22.424
+     }
+    }
+   },
+   {
+    "key": "set_aggregation",
+    "label": "Set aggregation",
+    "tasks": 8,
+    "success_pct": {
+     "d1024": 58.333,
+     "frames": 60.833,
+     "frames+graph": 60.0
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 2.5,
+      "ci95_lo": -2.5,
+      "ci95_hi": 10.0
+     },
+     "frames+graph - frames": {
+      "diff_pp": -0.833,
+      "ci95_lo": -9.167,
+      "ci95_hi": 6.667
+     }
+    }
+   },
+   {
+    "key": "user_preference",
+    "label": "User preference",
+    "tasks": 5,
+    "success_pct": {
+     "d1024": 62.667,
+     "frames": 62.667,
+     "frames+graph": 70.667
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 0.0,
+      "ci95_lo": -8.0,
+      "ci95_hi": 8.0
+     },
+     "frames+graph - frames": {
+      "diff_pp": 8.0,
+      "ci95_lo": 2.667,
+      "ci95_hi": 14.667
+     }
+    }
+   },
+   {
+    "key": "occluded_state",
+    "label": "Occluded state",
+    "tasks": 4,
+    "success_pct": {
+     "d1024": 48.333,
+     "frames": 51.667,
+     "frames+graph": 53.333
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 3.333,
+      "ci95_lo": -6.667,
+      "ci95_hi": 13.333
+     },
+     "frames+graph - frames": {
+      "diff_pp": 1.667,
+      "ci95_lo": 0.0,
+      "ci95_hi": 5.0
+     }
+    }
+   },
+   {
+    "key": "skill_outcome",
+    "label": "Skill outcome",
+    "tasks": 4,
+    "success_pct": {
+     "d1024": 53.333,
+     "frames": 56.667,
+     "frames+graph": 73.333
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 3.333,
+      "ci95_lo": -8.333,
+      "ci95_hi": 11.667
+     },
+     "frames+graph - frames": {
+      "diff_pp": 16.667,
+      "ci95_lo": -3.333,
+      "ci95_hi": 36.667
+     }
+    }
+   },
+   {
+    "key": "all",
+    "label": "All tasks",
+    "tasks": 53,
+    "success_pct": {
+     "d1024": 60.252,
+     "frames": 69.56,
+     "frames+graph": 74.717
+    },
+    "diffs": {
+     "frames - d1024": {
+      "diff_pp": 9.308,
+      "ci95_lo": 4.525,
+      "ci95_hi": 14.465
+     },
+     "frames+graph - frames": {
+      "diff_pp": 5.157,
+      "ci95_lo": 1.509,
+      "ci95_hi": 9.437
+     }
+    }
+   }
+  ]
+ },
+ "models": {
+  "rows": [
+   {
+    "key": "gemini",
+    "label": "Gemini 3.7 Flash",
+    "task_pct": {
+     "text": 39.623,
+     "d64": 58.491,
+     "d256": 61.006,
+     "d1024": 61.635,
+     "frames": 69.811,
+     "frames+graph": 72.327
+    },
+    "read_k_per_task": {
+     "text": 11.1992,
+     "d64": 15.7236,
+     "d256": 13.9282,
+     "d1024": 13.5624,
+     "frames": 13.4308,
+     "frames+graph": 16.2083
+    }
+   },
+   {
+    "key": "sol",
+    "label": "GPT 5.6 Sol",
+    "task_pct": {
+     "text": 35.849,
+     "d64": 34.591,
+     "d256": 39.623,
+     "d1024": 38.994,
+     "frames": 54.717,
+     "frames+graph": 56.604
+    },
+    "read_k_per_task": {
+     "text": 3.4442,
+     "d64": 6.6625,
+     "d256": 6.4222,
+     "d1024": 6.3056,
+     "frames": 6.5212,
+     "frames+graph": 9.1663
+    }
+   },
+   {
+    "key": "glm",
+    "label": "GLM 5.3 Flash",
+    "task_pct": {
+     "text": 32.704,
+     "d64": 38.365,
+     "d256": 42.767,
+     "d1024": 44.654,
+     "frames": 40.881,
+     "frames+graph": 49.686
+    },
+    "read_k_per_task": {
+     "text": 4.6873,
+     "d64": 13.3603,
+     "d256": 11.0683,
+     "d1024": 13.8086,
+     "frames": 11.8337,
+     "frames+graph": 13.7111
+    }
+   }
+  ]
+ },
+ "backends_single": {
+  "rows": [
+   {
+    "key": "wiki",
+    "label": "wiki",
+    "success_pct": {
+     "text": {
+      "mean": 38.211,
+      "lo": 36.585,
+      "hi": 39.024
+     },
+     "d64": {
+      "mean": 41.463,
+      "lo": 39.024,
+      "hi": 43.902
+     },
+     "d256": {
+      "mean": 46.341,
+      "lo": 41.463,
+      "hi": 51.22
+     },
+     "d1024": {
+      "mean": 43.902,
+      "lo": 41.463,
+      "hi": 46.341
+     },
+     "frames": {
+      "mean": 63.415,
+      "lo": 58.537,
+      "hi": 70.732
+     },
+     "frames+graph": {
+      "mean": 67.48,
+      "lo": 63.415,
+      "hi": 70.732
+     }
+    },
+    "writer_selects_images": {
+     "success_pct": {
+      "mean": 46.341,
+      "lo": 39.024,
+      "hi": 56.098
+     },
+     "frames_kept_pct": 7.594
+    },
+    "writer_sees_images": {
+     "success_pct": {
+      "mean": 60.976,
+      "lo": 58.537,
+      "hi": 65.854
+     }
+    }
+   },
+   {
+    "key": "amem",
+    "label": "A-MEM",
+    "success_pct": {
+     "text": {
+      "mean": 35.772,
+      "lo": 34.146,
+      "hi": 36.585
+     },
+     "d64": {
+      "mean": 56.098,
+      "lo": 53.659,
+      "hi": 58.537
+     },
+     "d256": {
+      "mean": 60.163,
+      "lo": 56.098,
+      "hi": 65.854
+     },
+     "d1024": {
+      "mean": 60.976,
+      "lo": 58.537,
+      "hi": 63.415
+     },
+     "frames": {
+      "mean": 71.545,
+      "lo": 68.293,
+      "hi": 75.61
+     },
+     "frames+graph": {
+      "mean": 74.797,
+      "lo": 70.732,
+      "hi": 78.049
+     }
+    },
+    "writer_selects_images": {
+     "success_pct": {
+      "mean": 61.789,
+      "lo": 58.537,
+      "hi": 63.415
+     },
+     "frames_kept_pct": 54.866
+    },
+    "writer_sees_images": {
+     "success_pct": {
+      "mean": 65.041,
+      "lo": 63.415,
+      "hi": 65.854
+     }
+    }
+   },
+   {
+    "key": "mem0",
+    "label": "Mem0",
+    "success_pct": {
+     "text": {
+      "mean": 35.772,
+      "lo": 34.146,
+      "hi": 36.585
+     },
+     "d64": {
+      "mean": 43.902,
+      "lo": 41.463,
+      "hi": 46.341
+     },
+     "d256": {
+      "mean": 49.593,
+      "lo": 43.902,
+      "hi": 56.098
+     },
+     "d1024": {
+      "mean": 51.22,
+      "lo": 43.902,
+      "hi": 56.098
+     },
+     "frames": {
+      "mean": 65.854,
+      "lo": 58.537,
+      "hi": 70.732
+     },
+     "frames+graph": {
+      "mean": 66.667,
+      "lo": 63.415,
+      "hi": 73.171
+     }
+    },
+    "writer_selects_images": {
+     "success_pct": {
+      "mean": 57.724,
+      "lo": 53.659,
+      "hi": 60.976
+     },
+     "frames_kept_pct": 25.329
+    },
+    "writer_sees_images": {
+     "success_pct": {
+      "mean": 60.163,
+      "lo": 51.22,
+      "hi": 68.293
+     }
+    }
+   },
+   {
+    "key": "obsmem",
+    "label": "ObsMem",
+    "success_pct": {
+     "text": {
+      "mean": 35.772,
+      "lo": 31.707,
+      "hi": 39.024
+     },
+     "d64": {
+      "mean": 52.846,
+      "lo": 51.22,
+      "hi": 53.659
+     },
+     "d256": {
+      "mean": 56.911,
+      "lo": 51.22,
+      "hi": 65.854
+     },
+     "d1024": {
+      "mean": 56.098,
+      "lo": 53.659,
+      "hi": 60.976
+     },
+     "frames": {
+      "mean": 66.667,
+      "lo": 63.415,
+      "hi": 70.732
+     },
+     "frames+graph": {
+      "mean": 77.236,
+      "lo": 73.171,
+      "hi": 80.488
+     }
+    },
+    "writer_selects_images": {
+     "success_pct": {
+      "mean": 63.415,
+      "lo": 58.537,
+      "hi": 68.293
+     },
+     "frames_kept_pct": 49.232
+    },
+    "writer_sees_images": {
+     "success_pct": {
+      "mean": 67.48,
+      "lo": 65.854,
+      "hi": 70.732
+     }
+    }
+   },
+   {
+    "key": "transcript",
+    "label": "transcript",
+    "success_pct": {
+     "text": {
+      "mean": 27.642,
+      "lo": 24.39,
+      "hi": 31.707
+     },
+     "d64": {
+      "mean": 52.033,
+      "lo": 48.78,
+      "hi": 53.659
+     },
+     "d256": {
+      "mean": 60.163,
+      "lo": 58.537,
+      "hi": 60.976
+     },
+     "d1024": {
+      "mean": 65.041,
+      "lo": 63.415,
+      "hi": 65.854
+     },
+     "frames": {
+      "mean": 68.293,
+      "lo": 68.293,
+      "hi": 68.293
+     },
+     "frames+graph": {
+      "mean": 71.545,
+      "lo": 70.732,
+      "hi": 73.171
+     }
+    },
+    "writer_selects_images": null,
+    "writer_sees_images": null
+   }
+  ]
+ },
+ "backends_stacked": {
+  "rows": [
+   {
+    "key": "wiki",
+    "label": "wiki",
+    "components_passed_pct": {
+     "text": {
+      "mean": 41.463,
+      "lo": 36.585,
+      "hi": 46.341
+     },
+     "d64": {
+      "mean": 52.033,
+      "lo": 41.463,
+      "hi": 60.976
+     },
+     "d256": {
+      "mean": 61.789,
+      "lo": 56.098,
+      "hi": 65.854
+     },
+     "d1024": {
+      "mean": 61.789,
+      "lo": 60.976,
+      "hi": 63.415
+     },
+     "frames": {
+      "mean": 64.228,
+      "lo": 58.537,
+      "hi": 70.732
+     },
+     "frames+graph": {
+      "mean": 73.984,
+      "lo": 70.732,
+      "hi": 75.61
+     }
+    }
+   },
+   {
+    "key": "amem",
+    "label": "A-MEM",
+    "components_passed_pct": {
+     "text": {
+      "mean": 27.642,
+      "lo": 24.39,
+      "hi": 31.707
+     },
+     "d64": {
+      "mean": 49.593,
+      "lo": 46.341,
+      "hi": 53.659
+     },
+     "d256": {
+      "mean": 52.033,
+      "lo": 48.78,
+      "hi": 53.659
+     },
+     "d1024": {
+      "mean": 56.098,
+      "lo": 51.22,
+      "hi": 58.537
+     },
+     "frames": {
+      "mean": 70.732,
+      "lo": 68.293,
+      "hi": 73.171
+     },
+     "frames+graph": {
+      "mean": 73.171,
+      "lo": 65.854,
+      "hi": 78.049
+     }
+    }
+   },
+   {
+    "key": "mem0",
+    "label": "Mem0",
+    "components_passed_pct": {
+     "text": {
+      "mean": 33.333,
+      "lo": 31.707,
+      "hi": 34.146
+     },
+     "d64": {
+      "mean": 50.407,
+      "lo": 46.341,
+      "hi": 53.659
+     },
+     "d256": {
+      "mean": 52.033,
+      "lo": 41.463,
+      "hi": 63.415
+     },
+     "d1024": {
+      "mean": 56.098,
+      "lo": 53.659,
+      "hi": 58.537
+     },
+     "frames": {
+      "mean": 66.667,
+      "lo": 60.976,
+      "hi": 70.732
+     },
+     "frames+graph": {
+      "mean": 72.358,
+      "lo": 68.293,
+      "hi": 75.61
+     }
+    }
+   },
+   {
+    "key": "obsmem",
+    "label": "ObsMem",
+    "components_passed_pct": {
+     "text": {
+      "mean": 21.951,
+      "lo": 19.512,
+      "hi": 24.39
+     },
+     "d64": {
+      "mean": 40.65,
+      "lo": 39.024,
+      "hi": 43.902
+     },
+     "d256": {
+      "mean": 36.585,
+      "lo": 29.268,
+      "hi": 41.463
+     },
+     "d1024": {
+      "mean": 43.902,
+      "lo": 39.024,
+      "hi": 51.22
+     },
+     "frames": {
+      "mean": 44.715,
+      "lo": 43.902,
+      "hi": 46.341
+     },
+     "frames+graph": {
+      "mean": 57.724,
+      "lo": 51.22,
+      "hi": 63.415
+     }
+    }
+   },
+   {
+    "key": "transcript",
+    "label": "transcript",
+    "components_passed_pct": {
+     "text": {
+      "mean": 2.439,
+      "lo": 0.0,
+      "hi": 4.878
+     },
+     "d64": {
+      "mean": 19.512,
+      "lo": 12.195,
+      "hi": 24.39
+     },
+     "d256": {
+      "mean": 20.325,
+      "lo": 17.073,
+      "hi": 24.39
+     },
+     "d1024": {
+      "mean": 22.764,
+      "lo": 14.634,
+      "hi": 29.268
+     },
+     "frames": {
+      "mean": 27.642,
+      "lo": 21.951,
+      "hi": 31.707
+     },
+     "frames+graph": {
+      "mean": 21.951,
+      "lo": 17.073,
+      "hi": 29.268
+     }
+    }
+   }
+  ]
+ },
+ "writer_sees_images": {
+  "rows": [
+   {
+    "condition": "frames",
+    "condition_label": "frames",
+    "backend": "wiki",
+    "backend_label": "wiki",
+    "task_pct": {
+     "default": 66.667,
+     "writer_sees_images": 63.522
+    },
+    "write_k_per_step": {
+     "default": 1.4798,
+     "writer_sees_images": 1.8129
+    },
+    "read_k_per_task": {
+     "default": 14.1455,
+     "writer_sees_images": 14.6264
+    }
+   },
+   {
+    "condition": "frames",
+    "condition_label": "frames",
+    "backend": "amem",
+    "backend_label": "A-MEM",
+    "task_pct": {
+     "default": 68.553,
+     "writer_sees_images": 64.151
+    },
+    "write_k_per_step": {
+     "default": 1.7347,
+     "writer_sees_images": 1.897
+    },
+    "read_k_per_task": {
+     "default": 11.2852,
+     "writer_sees_images": 11.618
+    }
+   },
+   {
+    "condition": "frames",
+    "condition_label": "frames",
+    "backend": "mem0",
+    "backend_label": "Mem0",
+    "task_pct": {
+     "default": 69.182,
+     "writer_sees_images": 60.377
+    },
+    "write_k_per_step": {
+     "default": 3.2219,
+     "writer_sees_images": 2.6816
+    },
+    "read_k_per_task": {
+     "default": 13.9336,
+     "writer_sees_images": 14.9187
+    }
+   },
+   {
+    "condition": "frames",
+    "condition_label": "frames",
+    "backend": "obsmem",
+    "backend_label": "ObsMem",
+    "task_pct": {
+     "default": 67.925,
+     "writer_sees_images": 67.925
+    },
+    "write_k_per_step": {
+     "default": 3.4792,
+     "writer_sees_images": 2.0777
+    },
+    "read_k_per_task": {
+     "default": 14.8374,
+     "writer_sees_images": 15.1305
+    }
+   },
+   {
+    "condition": "frames+graph",
+    "condition_label": "frames+graph",
+    "backend": "wiki",
+    "backend_label": "wiki",
+    "task_pct": {
+     "default": 70.44,
+     "writer_sees_images": 72.956
+    },
+    "write_k_per_step": {
+     "default": 1.4798,
+     "writer_sees_images": 1.8889
+    },
+    "read_k_per_task": {
+     "default": 15.6052,
+     "writer_sees_images": 17.5452
+    }
+   },
+   {
+    "condition": "frames+graph",
+    "condition_label": "frames+graph",
+    "backend": "amem",
+    "backend_label": "A-MEM",
+    "task_pct": {
+     "default": 73.585,
+     "writer_sees_images": 71.069
+    },
+    "write_k_per_step": {
+     "default": 1.7347,
+     "writer_sees_images": 1.8797
+    },
+    "read_k_per_task": {
+     "default": 13.2711,
+     "writer_sees_images": 13.3986
+    }
+   },
+   {
+    "condition": "frames+graph",
+    "condition_label": "frames+graph",
+    "backend": "mem0",
+    "backend_label": "Mem0",
+    "task_pct": {
+     "default": 71.698,
+     "writer_sees_images": 72.327
+    },
+    "write_k_per_step": {
+     "default": 3.2219,
+     "writer_sees_images": 2.6701
+    },
+    "read_k_per_task": {
+     "default": 15.0767,
+     "writer_sees_images": 15.9761
+    }
+   },
+   {
+    "condition": "frames+graph",
+    "condition_label": "frames+graph",
+    "backend": "obsmem",
+    "backend_label": "ObsMem",
+    "task_pct": {
+     "default": 79.874,
+     "writer_sees_images": 76.73
+    },
+    "write_k_per_step": {
+     "default": 3.4792,
+     "writer_sees_images": 2.0873
+    },
+    "read_k_per_task": {
+     "default": 16.6026,
+     "writer_sees_images": 16.6609
+    }
+   }
+  ]
+ }
+}

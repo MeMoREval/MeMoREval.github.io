@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeMoREval: What Should Embodied Agents Remember?</title>
+  <meta name="description" content="MeMoREval is a controlled benchmark for memory modality in embodied agents: 53 tasks in four simulated environments, measuring task success together with the inference cost of writing and reading memory.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/dexmate-symbol.svg">
+  <meta name="theme-color" content="#e8ecde">
+  <meta property="og:title" content="MeMoREval: What Should Embodied Agents Remember?">
+  <meta property="og:description" content="A controlled benchmark for memory modality in embodied agents: 53 tasks in four simulated environments, measuring task success and the inference cost of writing and reading memory.">
+  <meta property="og:type" content="website">
+  <!-- Social cards need absolute URLs: replace with https://<site>/media/og.jpg on deploy. -->
+  <meta property="og:image" content="media/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="media/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="#top"><span class="c">M</span>e<span class="c">M</span>o<span class="c">RE</span>val</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#walkthrough">Walkthrough</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#results">Results</a>
+      <a href="#real">Real robot</a>
+      <a href="#code">Code</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="title-panel">
+        <h1><span class="q">What Should Embodied Agents Remember?</span> Benchmarking and Evaluating Memory Modality for Embodied Agents</h1>
+        <div class="authors">
+          <!-- Author homepages: replace each href="#" with the author's page. -->
+          <span><a href="https://jimwang418.github.io/" target="_blank" rel="noopener">Junxiang Wang</a><sup>1,2†</sup></span>
+          <span><a href="https://www.linkedin.com/in/yuchen-liu-40a84b180/" target="_blank" rel="noopener">Yuchen Liu</a><sup>1,3†</sup></span>
+          <span>Yi Wu<sup>1</sup></span>
+          <span><a href="https://gfchen01.cc/" target="_blank" rel="noopener">Guofei Chen</a><sup>1</sup></span>
+          <span><a href="https://github.com/nirpechuk/" target="_blank" rel="noopener">Nir Pechuk</a><sup>2</sup></span>
+          <span><a href="https://taochenshh.github.io/" target="_blank" rel="noopener">Tao Chen</a><sup>1</sup></span>
+          <span><a href="https://zackory.com/" target="_blank" rel="noopener">Zackory Erickson</a><sup>2</sup></span>
+          <span><a href="https://yzqin.github.io/" target="_blank" rel="noopener">Yuzhe Qin</a><sup>1</sup></span>
+          <span><a href="https://easypapersniper.github.io/" target="_blank" rel="noopener">Tianyu Li</a><sup>1</sup></span>
+        </div>
+        <div class="affil">
+          <span><sup>1</sup>Dexmate</span>
+          <span><sup>2</sup>Carnegie Mellon University</span>
+          <span><sup>3</sup>Purdue University</span>
+          <span><sup>†</sup>Work done during an internship at Dexmate</span>
+        </div>
+        <p class="tldr">An embodied agent receives observations from its environment in many modalities: text, images, spatial maps, etc. Which modality should a robot use to remember what it sees? Is text a sufficient medium? <b>MeMoREval</b> measures how the choice of memory modality affects task success and the inference cost of writing and reading memory. Our experiments show that storing images is not only more effective but also more efficient than storing textual descriptions of images.</p>
+        <div class="panel-foot">
+          <div class="links">
+            <a class="btn" href="https://arxiv.org/abs/2610.12561" target="_blank" rel="noopener">Paper · arXiv</a>
+            <a class="btn" href="https://github.com/jimwang418/MeMoREval" target="_blank" rel="noopener">Code · GitHub</a>
+            <a class="btn" href="#cite">BibTeX</a>
+          </div>
+          <img class="dex" src="assets/img/dexmate-logo.svg" alt="Dexmate">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wt-section">
+    <div class="wrap">
+      <!-- Real-robot walkthrough -->
+      <figure class="wt" id="walkthrough" data-walkthrough tabindex="0" aria-label="Real-robot walkthrough of memory being written and later read">
+        <div class="wt-head">
+          <h2 class="wt-title">Example interaction of an embodied agent in the real world, with different memory modalities stored and queried</h2>
+        </div>
+
+        <div class="wt-main">
+          <div class="wt-screen">
+            <div class="wt-video">
+              <video class="vA" muted playsinline preload="metadata"></video>
+              <video class="vB off" muted playsinline preload="metadata"></video>
+              <span class="wt-tag" data-phase="exp">Experience</span>
+              <span class="wt-speed" aria-hidden="true"></span>
+              <div class="bubble b-instr"><span class="who">User</span><span class="say"></span></div>
+              <div class="bubble b-req"><span class="who">User, later</span><span class="say"></span></div>
+            </div>
+            <div class="evidence"></div>
+          </div>
+
+          <div class="mem" aria-label="Memory written during the experience"></div>
+        </div>
+
+        <div class="wt-controls">
+          <button class="play" type="button" aria-label="Play or pause">
+            <svg class="i-play" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9.5-5.5z"/></svg>
+            <svg class="i-pause" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg>
+          </button>
+          <div class="chapters" role="group" aria-label="Chapters"></div>
+          <span class="ch-now"></span>
+        </div>
+
+        <div class="agent">
+          <div class="ag-req">
+            <div class="ag-h">Agent <span class="pill">fresh context · memory only</span></div>
+            <p class="ag-wait">In a couple of moments, the user will issue a request that depends on the agent's memory, and the agent must build an action plan from memory alone.</p>
+            <q class="ag-q"></q>
+          </div>
+          <ol class="checks"></ol>
+          <div class="ag-plan">
+            <div class="ag-h">Plan <span class="sub">executed open-loop, without new observations</span></div>
+            <div class="plan-list"></div>
+          </div>
+        </div>
+        <svg class="wt-arcs" aria-hidden="true"></svg>
+      </figure>
+      <p class="wt-cap">Footage and head-camera frames come from our run on the physical robot (wiki memory with frames and scene graphs); the clips are sped up, with pauses cut. The memory contents and the order in which the agent consults them are simplified to illustrate each modality.</p>
+      <noscript><p class="wt-cap">This walkthrough needs JavaScript. It shows the robot storing text records, descriptions, frames and scene graphs while it works, and an agent later reading them to find the fruit that was next to the can.</p></noscript>
+
+    </div>
+  </section>
+
+  <section class="block" id="brief">
+    <div class="wrap">
+      <div class="col">
+        <h2>Why the form of memory matters</h2>
+        <p>A coding agent that forgets a fact can inspect the codebase again or rewind the codebase to an earlier state; the lapse in memory costs some computation but is largely invisible to the user. On the other hand, a robot that forgets where it saw an object may have to navigate between rooms, open containers or move objects to find it again, and this information may no longer be retrievable if the environment has changed. Therefore, for an embodied agent, memory is crucial, the form in which it is stored is equally important. A textual record might note several mugs on a counter but omit the colors needed to retrieve a particular one. A stored camera frame is lossless but can take up space to store, whereas generating descriptions of a camera frame requires choosing what details to retain before the task is known, and hence could miss the task-relevant facts.</p>
+        <h3>What we find</h3>
+        <p>MeMoREval compares different memory modalities for a realistic embodied agent under a controlled protocol, measuring task success together with the inference cost of writing memory during experience and reading it to answer later requests. Through experiments with MeMoREval, we found that:</p>
+        <ol class="findings">
+          <li>The agent solves 70% of tasks when camera frames are stored, against 60% with generated descriptions, and frames cost less tokens than descriptions not only at write-time but also at read-time (<a href="#r-frames">frames vs. descriptions</a>). Keeping less information actually leads to higher read-time cost with more reasoning tokens when missing task-relevant information (<a href="#r-effort">read-time effort</a>). </li>
+          <li>Storing frames with scene graphs gives the highest task success for every model we tested (<a href="#r-models">across models</a>).</li>
+          <li>Design choices matter more under deployment-oriented scenarios: different memory backends behave differently under longer histories, and designing memory writers that can choose which frames to keep is non-trivial (<a href="#r-deploy">deployment variants</a>).</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="benchmark">
+    <div class="wrap">
+      <div class="col">
+        <h2>The benchmark</h2>
+        <p>We define each task as two phases. In the <b>experience</b> phase, the robot carries out a scripted sequence of actions, such as a tour of the environment or moving an object, and may hear a user mention a preference, while a memory module records the robot&rsquo;s observations without knowing what will be asked. In the <b>request</b> phase, the agent receives two types of requests in a fresh context: <b>information requests</b> (&ldquo;Which cabinet contains the mug?&rdquo;) and <b>action requests</b> (&ldquo;Fetch the mug&rdquo;), and the agent must respond from memory alone. Action requests are responded to with a plan, which is a complete sequence of skill calls to be executed without returning new observations, so the agent cannot make up for missing memory by searching the scene again.</p>
+        <p>We separate the <b>memory modality</b>, the form in which evidence is retained, from the <b>memory backend</b>, which organizes that evidence and makes it available. We design six memory conditions with different modalities. The <span class="cn">text</span> condition keeps the textual observations alone. In <span class="cn">desc@64</span>, <span class="cn">desc@256</span> and <span class="cn">desc@1024</span>, a describer generates a description of each camera frame at that token budget and stores that description. The <span class="cn">frames</span> condition stores the annotated camera frames directly, and <span class="cn">frames+graph</span> also stores scene-graph snapshots. Orthogonally, we test five different memory backends. A rolling <span class="cn">transcript</span> directly logs the observations verbatim. In a <span class="cn">wiki</span> of named file-system pages and in our adaptations of <span class="cn">A-MEM</span>, <span class="cn">Mem0</span> and <span class="cn">ObsMem</span>, a memory writer turns those observations into organized memory records.</p>
+        <!-- On every backend, six memory modalities share this textual memory and differ only in what is archived beside it.  These artifacts are archived as they are, without passing through the writer, and the agent retrieves them by experience step. In each run, one model serves as writer, describer and agent. We report inference cost separately for writing memory, per experience step, and for reading it, per request, in weighted tokens, which are proportional to dollar cost within a model. -->
+        <p>MeMoREval instantiates the protocol in 53 tasks across four simulated indoor environments and seven categories of remembered information, with a simulated Dexmate Vega&nbsp;1 Pro bimanual mobile manipulator acting through navigation, opening and closing, and pick-and-place skills. See task categories, example tasks, and more below.</p>
+        <!-- Textual observations omit color and texture, so camera frames are the only source of appearance information. Every request is graded deterministically. -->
+      </div>
+
+      <figure class="tabfig" id="fig-bench">
+        <div class="tabs" role="tablist" aria-label="Benchmark views">
+          <button type="button" role="tab" id="tab-cats" aria-controls="pane-cats" aria-selected="true">Categories</button>
+          <button type="button" role="tab" id="tab-tasks" aria-controls="pane-tasks" aria-selected="false" tabindex="-1">Example tasks</button>
+          <button type="button" role="tab" id="tab-envs" aria-controls="pane-envs" aria-selected="false" tabindex="-1">Environments</button>
+          <button type="button" role="tab" id="tab-pipe" aria-controls="pane-pipe" aria-selected="false" tabindex="-1">Memory pipeline</button>
+        </div>
+
+        <div class="pane" role="tabpanel" id="pane-cats" aria-labelledby="tab-cats">
+          <div class="tbl-wrap" data-g="cats"></div>
+          <p class="fig-cap">The categories describe the information a task depends on, not which memory modality is expected to do best.</p>
+        </div>
+
+        <div class="pane" role="tabpanel" id="pane-tasks" aria-labelledby="tab-tasks" hidden>
+          <div class="gallery">
+            <div class="g-list" role="tablist" aria-label="Tasks" data-g="list"></div>
+            <div class="g-player" data-g="player" id="g-player" role="tabpanel">
+              <div class="gp-video"><video muted playsinline loop preload="metadata"></video><span class="gp-chip"></span><button class="vbtn" type="button" aria-label="Pause"><svg class="i-play" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9.5-5.5z"/></svg><svg class="i-pause" viewBox="0 0 16 16" fill="currentColor"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg></button></div>
+              <div class="gp-info">
+                <div class="gp-meta"></div>
+                <h4 class="gp-title"></h4>
+                <div class="gp-block gp-exp"></div>
+                <div class="gp-block"><div class="gp-h">What memory holds</div><div class="gp-frames"></div></div>
+                <div class="gp-block gp-reqs"></div>
+              </div>
+              <div class="gp-track" aria-hidden="true"></div>
+            </div>
+          </div>
+          <p class="fig-cap">One task per category, replayed from the robot&rsquo;s head camera: what happens during the experience, the stored frames or records that hold the answer, and what is asked later. Every experience starts with a scripted tour of the environment, which the clips omit; the replays are sped up, with pauses cut.</p>
+        </div>
+
+        <div class="pane" role="tabpanel" id="pane-envs" aria-labelledby="tab-envs" hidden>
+          <div class="envs" data-g="envs"></div>
+          <p class="fig-cap">Top-down views of the four simulated environments, with the number of tasks set in each.</p>
+        </div>
+
+
+        <div class="pane" role="tabpanel" id="pane-pipe" aria-labelledby="tab-pipe" hidden>
+          <div class="proto" aria-label="How memory is written and read">
+            <div class="pr-col pr-exp">
+              <div class="pr-h"><span class="pr-k">1</span>Experience</div>
+              <p class="pr-sub">Scripted actions and events</p>
+              <ul class="pr-list">
+                <li>A tour of the environment</li>
+                <li>An object is moved, a container opened and closed</li>
+                <li>A user mentions a preference</li>
+              </ul>
+              <p class="pr-sub">Observed at every step</p>
+              <div class="pr-obs">
+                <span><i data-ic="text"></i>Text: user messages, skill feedback, detected objects and their relations (no color or texture)</span>
+                <span><i data-ic="image"></i>Camera frame, annotated with object boxes and IDs</span>
+                <span><i data-ic="graph"></i>Scene-graph snapshot: object positions, support and containment</span>
+              </div>
+              <div class="pr-cost"><b>Write-time cost</b> per experience step: writer updates and description generation</div>
+            </div>
+
+            <div class="pr-arrow pr-w"><span>write</span></div>
+
+            <div class="pr-col pr-mem">
+              <div class="pr-h"><span class="pr-k">M</span>Memory module</div>
+              <p class="pr-sub">Writer</p>
+              <p class="pr-p">A model turns textual observations into memory records. Its inputs are identical in all six memory conditions.</p>
+              <p class="pr-sub">Archive, indexed by step</p>
+              <div class="pr-arch">
+                <span><i data-ic="desc"></i>Descriptions <em>one model call per frame</em></span>
+                <span><i data-ic="image"></i>Frames <em>stored as-is</em></span>
+                <span><i data-ic="graph"></i>Scene graphs <em>stored as-is</em></span>
+              </div>
+              <p class="pr-sub">Backend</p>
+              <p class="pr-p">Organizes and retrieves memory: a transcript (a rolling log, no writer), a wiki (named pages the writer appends to and rewrites), or our adaptations of A-MEM, Mem0 and ObsMem. Every entry carries its step number, and the agent fetches archived artifacts by step.</p>
+            </div>
+
+            <div class="pr-arrow pr-r"><span>read</span></div>
+
+            <div class="pr-col pr-req">
+              <div class="pr-h"><span class="pr-k">2</span>Request</div>
+              <p class="pr-sub">Fresh context per request: the request and the current room</p>
+              <div class="pr-reqs">
+                <div><b>Information request</b><p>&ldquo;Which cabinet contains the mug?&rdquo; Checked against a reference answer of a fixed type, such as a region, an object, a count or a set.</p></div>
+                <div><b>Action request</b><p>&ldquo;Fetch the mug.&rdquo; The agent submits one complete plan of skill calls, executed open-loop and checked against the final simulator state.</p></div>
+              </div>
+              <div class="pr-cost"><b>Read-time cost</b> per request: every model call while answering, also reported per successful request</div>
+            </div>
+          </div>
+          <p class="fig-cap">Within a backend, the six conditions share the textual memory and the agent; they differ only in what is archived next to that memory.</p>
+        </div>
+      </figure>
+
+      <div class="col">
+        <details class="more">
+          <summary>More on the setup</summary>
+          <div class="more-body">
+            <p><b>Environments and observations.</b> The tasks run in the Genesis simulator, in four indoor environments adapted from SceneSmith scenes: an office, a photography studio, a home and a clinic, each with seven to nine rooms and 200&ndash;300 objects. Textual observations report user messages, skill feedback and currently detected objects with their categories, articulation states, and support and containment relations. Camera frames are annotated with bounding boxes and the integer object IDs the agent uses in skill calls, and scene-graph snapshots store object IDs, 3D positions and support and containment relations, without appearance or viewpoint-dependent relations. Information requests are checked against reference answers of a fixed type, such as a region, an object, a count or a set; action requests are checked against task-specific predicates on the final simulator state.</p>
+            <p><b>Retrieval.</b> The agent may make up to five retrieval calls before it responds to a request. At most 20,000 characters of textual memory are rendered into its context per turn; retrieved frames, descriptions and scene-graph records do not count toward this limit. Scene-graph retrieval returns textual records of the requested objects and their relations.</p>
+            <p><b>Stacked histories.</b> Because experience and requests are separate, tasks can be stacked: the experience phases of 10&ndash;11 tasks from one environment are concatenated into one history, followed by all of their information requests and then all of their action requests. Before each action request, the simulator is restored to its state at the end of the combined experience. Each component task keeps its own grading; 41 tasks appear in the four stacked histories.</p>
+            <p><b>Models and runs.</b> Gemini&nbsp;3.7 Flash runs all six conditions on all five backends and all 53 tasks with three seeds (795 runs per condition), as well as the deployment-oriented variants. GPT&nbsp;5.6 Sol and GLM&nbsp;5.3 Flash run the six conditions on the transcript, wiki and A-MEM backends with one seed. All models run at temperature 0, and the no-memory and full-information controls run once per task.</p>
+            <p><b>Cost.</b> Costs are in weighted tokens, <span class="math">T<sub>in</sub>&middot;P<sub>in</sub>/P<sub>out</sub> + T<sub>out</sub></span>, where input tokens include image tokens and output tokens include reasoning tokens; weighted tokens times the output price give the dollar cost. Prices per million input/output tokens are $0.75/$3.75 for Gemini&nbsp;3.7 Flash, $4/$20 for GPT&nbsp;5.6 Sol and $0.15/$0.50 for GLM&nbsp;5.3 Flash. Because tokenizers and prices differ, costs are compared only across conditions within a model.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="results">
+    <div class="wrap">
+      <div class="col">
+        <h2>Results</h2>
+        <h3 id="r-frames">Frames are more effective and more efficient than descriptions</h3>
+        <p>Generated descriptions achieves task success rates of 56%, 59% and 60% as the description budget grows from 64 to 1024 tokens. Storing the frames themselves reaches 70%, and adding scene graphs 75%. Descriptions and frames are archived and retrieved the same way, so the gap only reflects what each modality stores and how well the agent uses it, not what the writer records. The limited gain from a larger description budget suggests that length alone does not solve the problem of keeping details before their relevance is known. Generating a description commits to an interpretation while memory is being built, whereas a stored frame leaves its visual details to be interpreted after the request arrives.</p>
+      </div>
+
+      <figure class="chart-card" id="fig-ledger">
+        <div class="cc-head">
+          <div class="cc-title"><h3>Success against inference cost</h3><p class="cc-sub">(a) task success against the cost of writing memory, per experience step; (b, c) success on information and action requests against the cost of reading memory, per request. Diagonals in (b) and (c) mark equal cost per successful request.</p></div>
+          <div class="cc-ctrl">
+            <div class="seg seg-unit" role="group" aria-label="Cost unit">
+              <button type="button" data-u="tok" aria-pressed="true">Tokens</button>
+              <button type="button" data-u="usd" aria-pressed="false">Dollars</button>
+            </div>
+          </div>
+        </div>
+        <div class="legend-row" data-legend="conds"></div>
+        <div class="cc-body"></div>
+        <figcaption class="cc-cap" data-fill="ledger-cap"></figcaption>
+      </figure>
+
+      <figure class="chart-card" id="fig-effort">
+        <div class="cc-head">
+          <div class="cc-title"><h3>Cost and read-time usage by memory condition</h3><p class="cc-sub">Gemini 3.7 Flash; dollars at $0.75 / $3.75 per million input / output tokens</p></div>
+        </div>
+        <div class="legend-row" data-legend="conds"></div>
+        <div class="cc-body"></div>
+        <figcaption class="cc-cap">Pooling five backends and three seeds (write-time cost: the four backends with a writer). A tool call is a retrieval, an answer or a plan.</figcaption>
+      </figure>
+
+      <div class="col">
+        <p>Cost-wise, storing camera frames directly also has an advantage. At write time, a description costs an extra model call at every experience step, while a frame is archived directly, so frames require less model inference ($9.30 per thousand steps against $11.08&ndash;$12.09 for descriptions). At read time, frames and <span class="cn">desc@1024</span> cost about the same per attempted request, but frames succeed more often, so they need 14% fewer weighted tokens per successful information request and 7% fewer per successful action request.</p>
+
+        <p>From this cost analysis, we could gain another useful insight, that less retained memory actually leads to higher reasoning at read time. Per request, agents with only text records make the fewest tool calls (1.0; a tool call is a retrieval, an answer or a plan) but spend the most reasoning tokens (4.2k). Longer descriptions lower both tool calls and reasoning tokens, and frames use fewer tool calls and reasoning tokens than any description condition. This progression from text to descriptions to frames suggests that incomplete evidence leads to extra deliberation without recovering the missing information, and preserving visual evidence retains the most information and reduces the deliberation effort. Adding scene graphs raises tool calls from 2.1 to 2.5 while reasoning stays at 3.1k tokens, consistent with the extra read cost going to retrieving and processing the additional modality.</p>
+      </div>
+
+      <div class="col">
+        <h3 id="r-cats">Where frames and scene graphs help</h3>
+        <p>Frames improve mean success over <span class="cn">desc@1024</span> in six of the seven categories, with the 95% intervals excluding zero for appearance binding (+18.0 points) and object location (+12.7). The advantage on appearance binding fits the account above: identifying a particular object can depend on visual attributes that a description leaves out. Adding scene graphs raises overall success by 5.2 points, with the 95% intervals excluding zero for spatial configuration (+9.7) and user preference (+8.0). Scene graphs make object positions and relations explicit, which can spare the agent from reconstructing spatial layout from camera views. Neither addition shows a clear gain on set aggregation or occluded state, so the benefit of an additional modality depends on the kind of information a task needs.</p>
+      </div>
+
+      <figure class="chart-card" id="fig-cats">
+        <div class="cc-head">
+          <div class="cc-title"><h3>Paired differences in task success, by category</h3><p class="cc-sub">Percentage points, with 95% paired-bootstrap intervals over tasks; each row is colored by the condition it favors</p></div>
+        </div>
+        <div class="cc-body"></div>
+      </figure>
+
+      <div class="col">
+        <h3 id="r-models">Across models, frames with scene graphs do best</h3>
+        <p>We repeated the six conditions with GPT&nbsp;5.6 Sol and GLM&nbsp;5.3 Flash on one seed and three backends (transcript, wiki and A-MEM). Storing frames with scene graphs gives the highest success for all three models. Whether frames alone beat <span class="cn">desc@1024</span> depends on the model: they do for Gemini&nbsp;3.7 Flash (70% vs. 62%) and GPT&nbsp;5.6 Sol (55% vs. 39%), but not for GLM&nbsp;5.3 Flash (41% vs. 45%). Text, frames and scene graphs can encode the same fact in different forms, and the differing rankings suggest that models vary in how well they use each one. Combining them offers alternative routes to shared facts as well as complementary information, which may explain why the combined condition does best for every model. The models also differ in how many tokens they spend retrieving and using this evidence, which gives each its own trade-off between success and read cost.</p>
+      </div>
+
+      <figure class="chart-card" id="fig-models">
+        <div class="cc-head">
+          <div class="cc-title"><h3>Task success against read cost, by model</h3><p class="cc-sub">Each model serves as writer, describer and agent; one seed; transcript, wiki and A-MEM backends. Read cost in k weighted tokens per task at each model&rsquo;s own prices, so compare positions within a panel only; descriptions joined in order of budget</p></div>
+        </div>
+        <div class="legend-row" data-legend="conds"></div>
+        <div class="cc-body"></div>
+      </figure>
+
+      <div class="col">
+        <h3 id="r-deploy">Deployment choices change how memory configurations compare</h3>
+        <p>The controlled comparison above uses short single tasks, a writer that receives only textual observations, and automatic storage of every frame. A deployed robot can introduce practical considerations beyond the controlled environment, and our benchmark tests such variants too. For longer histories, the experience phases of 10&ndash;11 tasks from one environment are stacked into one history, followed by all of their requests. The transcript degrades substantially under stacking: its rolling history exceeds the shared memory-context budget, so earlier observations and their retrieval cues are truncated from the agent&rsquo;s context. The other backends respond in different ways, suggesting that memory organization and retrieval affect how accessible useful evidence remains as histories grow.</p>
+      </div>
+
+      <figure class="chart-card" id="fig-deploy">
+        <div class="cc-head">
+          <div class="cc-title"><h3 data-fill="deploy-title"></h3><p class="cc-sub" data-fill="deploy-sub"></p></div>
+          <div class="cc-ctrl">
+            <div class="seg" role="group" aria-label="Variant">
+              <button type="button" data-v="stack" aria-pressed="true">History length</button>
+              <button type="button" data-v="select" aria-pressed="false">Writer selects images</button>
+              <button type="button" data-v="sees" aria-pressed="false">Writer sees images</button>
+            </div>
+          </div>
+        </div>
+        <div class="cc-sub-ctrl" data-fill="deploy-ctrl"></div>
+        <div class="legend-row" data-legend="deploy"></div>
+        <div class="cc-body"></div>
+        <figcaption class="cc-cap" data-fill="deploy-cap"></figcaption>
+      </figure>
+
+      <div class="col">
+        <p>Archiving every frame makes storage grow with experience, so a deployed writer may have to decide which frames to save strategically. The retention rate ranges from 8&ndash;55% among the tested backends, and mean task success is lower than with every frame archived, suggesting that how to perform retention is still an open question.</p>
+          
+        <p>Another reasonable extension is giving the writer access to the camera images, since writers might be able to synthesize data more effectively with multimodal data at hand. Our experiments show that this is beneficial only in some cases. In terms of task success, it does not always improve performance, and in some cases, it can even lead to a decrease in performance. In terms of the cost of writing memories, it increases the cost for some backends and decreases it for others. Overall, our results indicate that there are benefits to be gained from providing writers with access to camera images, but the extent to which these benefits are realized depends on the specific context and backend implementation.</p>
+
+        <h3 id="real">On the real robot</h3>
+        <p>We also deployed our evaluation protocol on a physical Dexmate Vega&nbsp;1 Pro. A SLAM map with manually annotated objects and relations, including support, provides the scene-graph records, and the head camera provides visual observations, segmented with SAM&nbsp;3. We ran two demonstrations of memory-dependent tasks, both with the <span class="cn">frames+graph</span> condition on the wiki backend. In the first, shown in the <a href="#walkthrough">walkthrough</a> above, the robot throws away a soda can and later fetches the fruit that had been beside it. In the second, below, it moves a lemon to a blue plate, later recalls the color of the lemon&rsquo;s original plate, and fetches the fruit that had been to the lemon&rsquo;s right. The robot completed both deliveries without human assistance.</p>
+      </div>
+      <!-- Second real-robot demonstration -->
+      <figure class="demo2" id="lemon">
+                <div class="demo2-grid">
+          <div class="clip">
+            <video src="media/real/lemon_experience_v2.mp4" poster="media/real/lemon_experience_v2.jpg" muted playsinline loop preload="metadata" data-autoplay></video>
+            <p><b>Experience.</b> <q>Move the lemon to the blue plate.</q></p>
+          </div>
+          <div class="clip">
+            <video src="media/real/lemon_execution_v2.mp4" poster="media/real/lemon_execution_v2.jpg" muted playsinline loop preload="metadata" data-autoplay></video>
+            <p><b>Later.</b> <q>Which color is the plate you took the lemon from?</q> Answer: orange. Then: <q>Bring me the fruit to the right of where the lemon was.</q></p>
+          </div>
+        </div>
+        <p class="clip-note">Clips sped up 2&ndash;6&times;, with pauses cut.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="code">
+    <div class="wrap">
+      <div class="col">
+        <h2>Evaluate your own memory system</h2>
+        <p>MeMoREval lets you try your own embodied agent memory system, or even your own agent altogether! In addition to the controlled environment, we also provide several deployment-oriented settings as explained above. We believe that this platform will be useful for much more than what we demonstrated, and we'd love to see your memory system and use case!</p>
+        <div class="links rel-links">
+          <a class="btn" href="https://arxiv.org/abs/2610.12561" target="_blank" rel="noopener">Paper · arXiv</a>
+          <a class="btn" href="https://github.com/jimwang418/MeMoREval" target="_blank" rel="noopener">Code · GitHub</a>
+        </div>
+        <details class="more">
+          <summary>What you can vary</summary>
+          <div class="more-body">
+            <div class="tbl-wrap" data-fill="space"></div>
+          </div>
+        </details>
+        <div class="cite" id="cite">
+          <div class="cite-h"><h3>Citation</h3><button class="copy" type="button">Copy</button></div>
+          <pre><code>@misc{wang2026memoreval,
+  title  = {What Should Embodied Agents Remember? Benchmarking and Evaluating Memory Modality for Embodied Agents},
+  author = {Wang, Junxiang and Liu, Yuchen and Wu, Yi and Chen, Guofei and Pechuk, Nir and Chen, Tao and Erickson, Zackory and Qin, Yuzhe and Li, Tianyu},
+  year   = {2026},
+  eprint = {2610.12561},
+  archivePrefix = {arXiv},
+  note   = {Dexmate technical report},
+  url    = {https://arxiv.org/abs/2610.12561}
+}</code></pre>
+        </div>
+        <p class="contact">Correspondence: <a href="mailto:junxiang@cmu.edu">junxiang@cmu.edu</a>, <a href="mailto:ty.li@dexmate.ai">ty.li@dexmate.ai</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Dexmate</div></footer>
+
+<script src="assets/js/walkthrough-data.js"></script>
+<script src="assets/js/walkthrough.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/results.js"></script>
+<script src="assets/js/gallery.js"></script>
+</body>
+</html>

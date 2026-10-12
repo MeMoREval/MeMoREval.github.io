@@ -1,0 +1,2311 @@
+{
+ "notes": {
+  "video": "Head-camera clips (640x480, H.264, 30 fps, no audio). Each clip is condensed from the replay video: speed varies per segment (see segments), and cuts between non-contiguous segments are 0.4 s cross-dissolves.",
+  "times": "All event/memory times are seconds in the condensed clip. Zero-length events (t0 == t1) mark instantaneous moments: questions (qa), spoken answers or remarks (speech), or a skill call that ended without motion.",
+  "memory": "Memory frames are the stored 640x480 head-camera frames (downscaled to 480x360). boxes.bbox_norm are the benchmark detections for that frame, normalized [x0, y0, x1, y1]; the integer id is the object identifier the agent sees. text_record lists the matching entries of the text-only observation for the same step.",
+  "tour": "Every experience phase starts with the scene’s shared scripted tour, which is not part of these clips."
+ },
+ "envs": [
+  {
+   "scene": "scene_201_v2",
+   "key": "office",
+   "name": "Office",
+   "tasks": 12,
+   "tour_steps": 10,
+   "img": "media/sim/env/scene_201_v2.webp"
+  },
+  {
+   "scene": "scene_202_v1",
+   "key": "studio",
+   "name": "Photography studio",
+   "tasks": 14,
+   "tour_steps": 8,
+   "img": "media/sim/env/scene_202_v1.webp"
+  },
+  {
+   "scene": "scene_205_v1",
+   "key": "home",
+   "name": "Home",
+   "tasks": 14,
+   "tour_steps": 11,
+   "img": "media/sim/env/scene_205_v1.webp"
+  },
+  {
+   "scene": "scene_206_v1",
+   "key": "clinic",
+   "name": "Clinic",
+   "tasks": 13,
+   "tour_steps": 12,
+   "img": "media/sim/env/scene_206_v1.webp"
+  }
+ ],
+ "categories": [
+  {
+   "key": "object_location",
+   "name": "Object location",
+   "count": 11,
+   "remembered": "where an object was last seen",
+   "example": "“Which room is the satchel in?”; fetch it",
+   "showcase": "scene_205_v1__vis_teddy_rooms"
+  },
+  {
+   "key": "spatial_configuration",
+   "name": "Spatial configuration",
+   "count": 11,
+   "remembered": "how objects were arranged: order and relative position",
+   "example": "“What sat left of the storybook?”; restore a shelf",
+   "showcase": "scene_205_v1__vis_stack_order"
+  },
+  {
+   "key": "appearance_binding",
+   "name": "Appearance binding",
+   "count": 10,
+   "remembered": "which instance had which color or pattern",
+   "example": "Fetch the orange mug among look-alikes",
+   "showcase": "scene_201_v2__vis_bowl_stack"
+  },
+  {
+   "key": "set_aggregation",
+   "name": "Set aggregation",
+   "count": 8,
+   "remembered": "counts and collections across rooms",
+   "example": "“How many mugs are in the kitchen?”; gather all toys",
+   "showcase": "scene_206_v1__collect_gloveboxes"
+  },
+  {
+   "key": "user_preference",
+   "name": "User preference",
+   "count": 5,
+   "remembered": "which object a user’s remark refers to",
+   "example": "Fetch the mug the user said was theirs",
+   "showcase": "scene_202_v1__pref_client_plant"
+  },
+  {
+   "key": "occluded_state",
+   "name": "Occluded state",
+   "count": 4,
+   "remembered": "contents behind doors and lids",
+   "example": "“What was inside the wardrobe?”",
+   "showcase": "scene_205_v1__vis_container_reveal"
+  },
+  {
+   "key": "skill_outcome",
+   "name": "Skill outcome",
+   "count": 4,
+   "remembered": "which action variant succeeded",
+   "example": "Re-shelve using the placement that worked",
+   "showcase": "scene_206_v1__proc_pharmacy_return"
+  }
+ ],
+ "tasks": [
+  {
+   "id": "scene_205_v1__vis_teddy_rooms",
+   "scene": "scene_205_v1",
+   "env": "home",
+   "task": "vis_teddy_rooms",
+   "category": "object_location",
+   "title": "The white teddy’s room",
+   "experience": {
+    "instruction": "Take a look at the stuffed animals in the kids' bedrooms.",
+    "user_text": null
+   },
+   "requests": [
+    {
+     "type": "info",
+     "q": "Which room is the white teddy bear in?",
+     "a": "Kids' bedroom 1",
+     "a_raw": "kids_bedroom_1"
+    },
+    {
+     "type": "action",
+     "text": "Bring me the white teddy bear. I'm at the coffee table in the living room."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_205_v1__vis_teddy_rooms.mp4",
+    "poster": "media/sim/scene_205_v1__vis_teddy_rooms.jpg",
+    "duration": 22.2,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 4.33
+   },
+   "events": [
+    {
+     "t0": 0.0,
+     "t1": 16.23,
+     "kind": "instruction",
+     "label": "Take a look at the stuffed animals in the kids' bedrooms.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.0,
+     "t1": 1.86,
+     "kind": "skill",
+     "label": "navigate_to(kids_bedroom_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 1.86,
+     "t1": 4.77,
+     "kind": "skill",
+     "label": "navigate_to(plush_teddy_bear_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 4.77,
+     "t1": 8.58,
+     "kind": "skill",
+     "label": "navigate_to(plush_teddy_bear_0)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 8.58,
+     "t1": 12.08,
+     "kind": "skill",
+     "label": "navigate_to(kids_bedroom_2)",
+     "ok": true,
+     "region": "kids_bedroom_2"
+    },
+    {
+     "t0": 12.08,
+     "t1": 16.05,
+     "kind": "skill",
+     "label": "navigate_to(teddy_bear_1)",
+     "ok": true,
+     "region": "kids_bedroom_2"
+    },
+    {
+     "t0": 16.23,
+     "t1": 16.23,
+     "kind": "qa",
+     "label": "Which room is the white teddy bear in?",
+     "answer": "Kids' bedroom 1",
+     "answer_raw": "kids_bedroom_1",
+     "ok": true
+    },
+    {
+     "t0": 16.23,
+     "t1": 16.23,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Kids' bedroom 1",
+     "raw": "kids_bedroom_1",
+     "ok": true
+    },
+    {
+     "t0": 16.23,
+     "t1": 22.2,
+     "kind": "instruction",
+     "label": "Bring me the white teddy bear. I'm at the coffee table in the living room.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 16.23,
+     "t1": 17.37,
+     "kind": "skill",
+     "label": "navigate(kids_bedroom_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 17.37,
+     "t1": 18.77,
+     "kind": "skill",
+     "label": "navigate_to(plush_teddy_bear_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 18.77,
+     "t1": 22.2,
+     "kind": "skill",
+     "label": "pick(plush_teddy_bear_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    }
+   ],
+   "memory": [
+    {
+     "t": 4.77,
+     "src": "media/sim/frames/scene_205_v1__vis_teddy_rooms__1.jpg",
+     "caption": "Kids' bedroom 1: the white teddy bear (#47) lies on the bed.",
+     "src_time": 16.52,
+     "step": 2,
+     "boxes": [
+      {
+       "id": 47,
+       "label": "plush_teddy_bear_1",
+       "category": "plush_teddy_bear",
+       "bbox_norm": [
+        0.5125,
+        0.7271,
+        0.5578,
+        0.7917
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kids_bedroom_1",
+      "objects": [
+       "plush_teddy_bear in kids_bedroom_1",
+       "plush_teddy_bear in kids_bedroom_1"
+      ]
+     }
+    },
+    {
+     "t": 8.58,
+     "src": "media/sim/frames/scene_205_v1__vis_teddy_rooms__2.jpg",
+     "caption": "Kids' bedroom 1: a brown teddy bear (#86) on top of the bookshelf.",
+     "src_time": 31.49,
+     "step": 3,
+     "boxes": [
+      {
+       "id": 86,
+       "label": "plush_teddy_bear_0",
+       "category": "plush_teddy_bear",
+       "bbox_norm": [
+        0.4203,
+        0.4188,
+        0.4844,
+        0.475
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kids_bedroom_1",
+      "objects": [
+       "plush_teddy_bear in kids_bedroom_1",
+       "plush_teddy_bear in kids_bedroom_1"
+      ]
+     }
+    },
+    {
+     "t": 16.04,
+     "src": "media/sim/frames/scene_205_v1__vis_teddy_rooms__3.jpg",
+     "caption": "Kids' bedroom 2: another brown teddy bear (#119) on the floor.",
+     "src_time": 57.31,
+     "step": 5,
+     "boxes": [
+      {
+       "id": 119,
+       "label": "teddy_bear_1",
+       "category": "teddy_bear",
+       "bbox_norm": [
+        0.4656,
+        0.8917,
+        0.5375,
+        0.9979
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kids_bedroom_2",
+      "objects": [
+       "teddy_bear in kids_bedroom_2",
+       "teddy_bear in kids_bedroom_2"
+      ]
+     }
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 2.5,
+     "src_end": 11,
+     "speed": 6,
+     "out_start": 0,
+     "out_end": 1.417
+    },
+    {
+     "src_start": 11,
+     "src_end": 13.5,
+     "speed": 3,
+     "out_start": 1.417,
+     "out_end": 2.25
+    },
+    {
+     "src_start": 13.5,
+     "src_end": 17,
+     "speed": 1.2,
+     "out_start": 2.25,
+     "out_end": 5.167
+    },
+    {
+     "src_start": 17,
+     "src_end": 29.5,
+     "speed": 6,
+     "out_start": 5.167,
+     "out_end": 7.25
+    },
+    {
+     "src_start": 29.5,
+     "src_end": 32,
+     "speed": 1.5,
+     "out_start": 7.25,
+     "out_end": 8.917
+    },
+    {
+     "src_start": 32,
+     "src_end": 48.5,
+     "speed": 6,
+     "out_start": 8.917,
+     "out_end": 11.667
+    },
+    {
+     "src_start": 48.5,
+     "src_end": 53,
+     "speed": 3,
+     "out_start": 11.667,
+     "out_end": 13.167
+    },
+    {
+     "src_start": 53,
+     "src_end": 58.2,
+     "speed": 1.5,
+     "out_start": 13.167,
+     "out_end": 16.633
+    },
+    {
+     "src_start": 73.5,
+     "src_end": 79.2,
+     "speed": 5,
+     "out_start": 16.233,
+     "out_end": 17.373
+    },
+    {
+     "src_start": 79.2,
+     "src_end": 83.4,
+     "speed": 3,
+     "out_start": 17.373,
+     "out_end": 18.773
+    },
+    {
+     "src_start": 83.4,
+     "src_end": 95.4,
+     "speed": 3.5,
+     "out_start": 18.773,
+     "out_end": 22.202
+    }
+   ],
+   "note": "The clip ends once the white teddy is in the gripper; the delivery is not shown."
+  },
+  {
+   "id": "scene_205_v1__vis_stack_order",
+   "scene": "scene_205_v1",
+   "env": "home",
+   "task": "vis_stack_order",
+   "category": "spatial_configuration",
+   "title": "The bottom book of the stack",
+   "experience": {
+    "instruction": "Take the top book from the stack on the dining room dresser and put it on the dining table.",
+    "user_text": null
+   },
+   "requests": [
+    {
+     "type": "info",
+     "q": "Earlier there was a stack of two books on the dining room dresser. What color was the bottom book?",
+     "a": "Red",
+     "a_raw": "red"
+    },
+    {
+     "type": "action",
+     "text": "Bring me the book that was at the bottom of the stack on the dresser. I'm at the coffee table in the living room."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_205_v1__vis_stack_order.mp4",
+    "poster": "media/sim/scene_205_v1__vis_stack_order.jpg",
+    "duration": 30.5,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 10.62
+   },
+   "events": [
+    {
+     "t0": 0.0,
+     "t1": 15.96,
+     "kind": "instruction",
+     "label": "Take the top book from the stack on the dining room dresser and put it on the dining table.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.0,
+     "t1": 0.31,
+     "kind": "skill",
+     "label": "navigate_to(dining_room)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 0.31,
+     "t1": 4.89,
+     "kind": "skill",
+     "label": "navigate_to(hardcover_book_1)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 4.89,
+     "t1": 12.09,
+     "kind": "skill",
+     "label": "pick(hardcover_book_1)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 12.09,
+     "t1": 13.6,
+     "kind": "skill",
+     "label": "navigate_to(dining_table_0)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 13.6,
+     "t1": 15.96,
+     "kind": "skill",
+     "label": "place(on dining_table_0)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 15.96,
+     "t1": 15.96,
+     "kind": "qa",
+     "label": "Earlier there was a stack of two books on the dining room dresser. What color was the bottom book?",
+     "answer": "Red",
+     "answer_raw": "red",
+     "ok": true
+    },
+    {
+     "t0": 15.96,
+     "t1": 15.96,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Red",
+     "raw": "red",
+     "ok": true
+    },
+    {
+     "t0": 15.96,
+     "t1": 30.5,
+     "kind": "instruction",
+     "label": "Bring me the book that was at the bottom of the stack on the dresser. I'm at the coffee table in the living room.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 15.96,
+     "t1": 17.86,
+     "kind": "skill",
+     "label": "navigate_to(hardcover_book_0)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 17.86,
+     "t1": 21.86,
+     "kind": "skill",
+     "label": "pick(hardcover_book_0)",
+     "ok": true,
+     "region": "dining_room"
+    },
+    {
+     "t0": 21.86,
+     "t1": 24.68,
+     "kind": "skill",
+     "label": "navigate(living_room)",
+     "ok": true,
+     "region": "living_room"
+    },
+    {
+     "t0": 24.68,
+     "t1": 26.92,
+     "kind": "skill",
+     "label": "navigate_to(coffee_table_0)",
+     "ok": true,
+     "region": "living_room"
+    },
+    {
+     "t0": 26.92,
+     "t1": 30.5,
+     "kind": "skill",
+     "label": "place(on coffee_table_0)",
+     "ok": true,
+     "region": "living_room"
+    }
+   ],
+   "memory": [
+    {
+     "t": 4.89,
+     "src": "media/sim/frames/scene_205_v1__vis_stack_order__1.jpg",
+     "caption": "At the dresser: only the blue top book (#48) of the two-book stack is visible.",
+     "src_time": 45.67,
+     "step": 2,
+     "boxes": [
+      {
+       "id": 48,
+       "label": "hardcover_book_1",
+       "category": "hardcover_book",
+       "bbox_norm": [
+        0.4516,
+        0.6875,
+        0.5297,
+        0.7646
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "dining_room",
+      "objects": [
+       "hardcover_book in dining_room",
+       "hardcover_book in dining_room"
+      ]
+     }
+    },
+    {
+     "t": 12.09,
+     "src": "media/sim/frames/scene_205_v1__vis_stack_order__2.jpg",
+     "caption": "Lifting the blue book reveals the red book (#64) that was underneath.",
+     "src_time": 57.67,
+     "step": 3,
+     "boxes": [
+      {
+       "id": 64,
+       "label": "hardcover_book_0",
+       "category": "hardcover_book",
+       "bbox_norm": [
+        0.4516,
+        0.6813,
+        0.5297,
+        0.7583
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "dining_room",
+      "objects": [
+       "hardcover_book in dining_room"
+      ]
+     }
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 25,
+     "src_end": 37,
+     "speed": 6,
+     "out_start": 0,
+     "out_end": 2
+    },
+    {
+     "src_start": 37,
+     "src_end": 45.68,
+     "speed": 3,
+     "out_start": 2,
+     "out_end": 4.893
+    },
+    {
+     "src_start": 45.68,
+     "src_end": 50,
+     "speed": 2.5,
+     "out_start": 4.893,
+     "out_end": 6.621
+    },
+    {
+     "src_start": 50,
+     "src_end": 56,
+     "speed": 1.25,
+     "out_start": 6.621,
+     "out_end": 11.421
+    },
+    {
+     "src_start": 56,
+     "src_end": 57.68,
+     "speed": 2.5,
+     "out_start": 11.421,
+     "out_end": 12.093
+    },
+    {
+     "src_start": 57.68,
+     "src_end": 74,
+     "speed": 5,
+     "out_start": 12.093,
+     "out_end": 15.357
+    },
+    {
+     "src_start": 74,
+     "src_end": 77,
+     "speed": 3,
+     "out_start": 15.357,
+     "out_end": 16.357
+    },
+    {
+     "src_start": 143,
+     "src_end": 154.42,
+     "speed": 6,
+     "out_start": 15.957,
+     "out_end": 17.861
+    },
+    {
+     "src_start": 154.42,
+     "src_end": 166.42,
+     "speed": 3,
+     "out_start": 17.861,
+     "out_end": 21.861
+    },
+    {
+     "src_start": 166.42,
+     "src_end": 196.78,
+     "speed": 6,
+     "out_start": 21.861,
+     "out_end": 26.921
+    },
+    {
+     "src_start": 196.78,
+     "src_end": 209.3,
+     "speed": 3.5,
+     "out_start": 26.921,
+     "out_end": 30.498
+    }
+   ],
+   "note": "The clip skips the walk to the hallway and back between the experience and the request."
+  },
+  {
+   "id": "scene_201_v2__vis_bowl_stack",
+   "scene": "scene_201_v2",
+   "env": "office",
+   "task": "vis_bowl_stack",
+   "category": "appearance_binding",
+   "title": "The stacked kitchen bowl",
+   "experience": {
+    "instruction": "Take a look at the bowls in the kitchen.",
+    "user_text": null
+   },
+   "requests": [
+    {
+     "type": "info",
+     "q": "What color is the ceramic bowl stacked on the kitchen counter?",
+     "a": "Blue",
+     "a_raw": "blue"
+    },
+    {
+     "type": "action",
+     "text": "Bring me the bowl that was stacked on the kitchen counter. I'm at the coffee table in the lounge."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_201_v2__vis_bowl_stack.mp4",
+    "poster": "media/sim/scene_201_v2__vis_bowl_stack.jpg",
+    "duration": 22.62,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 6.17
+   },
+   "events": [
+    {
+     "t0": 0.0,
+     "t1": 6.77,
+     "kind": "instruction",
+     "label": "Take a look at the bowls in the kitchen.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.0,
+     "t1": 3.27,
+     "kind": "skill",
+     "label": "navigate_to(kitchen)",
+     "ok": true,
+     "region": "kitchen"
+    },
+    {
+     "t0": 3.27,
+     "t1": 6.68,
+     "kind": "skill",
+     "label": "navigate_to(ceramic_bowl_1)",
+     "ok": true,
+     "region": "kitchen"
+    },
+    {
+     "t0": 6.77,
+     "t1": 6.77,
+     "kind": "qa",
+     "label": "What color is the ceramic bowl stacked on the kitchen counter?",
+     "answer": "Blue",
+     "answer_raw": "blue",
+     "ok": true
+    },
+    {
+     "t0": 6.77,
+     "t1": 6.77,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Blue",
+     "raw": "blue",
+     "ok": true
+    },
+    {
+     "t0": 6.77,
+     "t1": 22.62,
+     "kind": "instruction",
+     "label": "Bring me the bowl that was stacked on the kitchen counter. I'm at the coffee table in the lounge.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 6.77,
+     "t1": 8.01,
+     "kind": "skill",
+     "label": "navigate(kitchen)",
+     "ok": true,
+     "region": "kitchen"
+    },
+    {
+     "t0": 8.01,
+     "t1": 9.61,
+     "kind": "skill",
+     "label": "navigate_to(ceramic_bowl_1)",
+     "ok": true,
+     "region": "kitchen"
+    },
+    {
+     "t0": 9.61,
+     "t1": 13.61,
+     "kind": "skill",
+     "label": "pick(ceramic_bowl_1)",
+     "ok": true,
+     "region": "kitchen"
+    },
+    {
+     "t0": 13.61,
+     "t1": 17.09,
+     "kind": "skill",
+     "label": "navigate(lounge)",
+     "ok": true,
+     "region": "lounge"
+    },
+    {
+     "t0": 17.09,
+     "t1": 18.43,
+     "kind": "skill",
+     "label": "navigate_to(coffee_table_0)",
+     "ok": true,
+     "region": "lounge"
+    },
+    {
+     "t0": 18.43,
+     "t1": 22.62,
+     "kind": "skill",
+     "label": "place(on coffee_table_0)",
+     "ok": true,
+     "region": "lounge"
+    }
+   ],
+   "memory": [
+    {
+     "t": 3.27,
+     "src": "media/sim/frames/scene_201_v2__vis_bowl_stack__1.jpg",
+     "caption": "Entering the kitchen: a bowl (#82) is on the counter, far right.",
+     "src_time": 19.82,
+     "step": 1,
+     "boxes": [
+      {
+       "id": 82,
+       "label": "ceramic_bowl_1",
+       "category": "ceramic_bowl",
+       "bbox_norm": [
+        0.9125,
+        0.35,
+        0.9516,
+        0.3729
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kitchen",
+      "objects": [
+       "ceramic_bowl in kitchen",
+       "ceramic_bowl in kitchen"
+      ]
+     }
+    },
+    {
+     "t": 6.68,
+     "src": "media/sim/frames/scene_201_v2__vis_bowl_stack__2.jpg",
+     "caption": "Close look: the blue bowl (#82) is stacked on another (white) bowl on the counter; a yellow bowl (#76) sits on the microwave station.",
+     "src_time": 24.62,
+     "step": 2,
+     "boxes": [
+      {
+       "id": 82,
+       "label": "ceramic_bowl_1",
+       "category": "ceramic_bowl",
+       "bbox_norm": [
+        0.4,
+        0.5292,
+        0.4906,
+        0.6021
+       ]
+      },
+      {
+       "id": 76,
+       "label": "ceramic_bowl_2",
+       "category": "ceramic_bowl",
+       "bbox_norm": [
+        0.8422,
+        0.3729,
+        0.9719,
+        0.4396
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kitchen",
+      "objects": [
+       "ceramic_bowl in kitchen",
+       "ceramic_bowl in kitchen"
+      ]
+     }
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 2,
+     "src_end": 18,
+     "speed": 6,
+     "out_start": 0,
+     "out_end": 2.667
+    },
+    {
+     "src_start": 18,
+     "src_end": 21,
+     "speed": 3,
+     "out_start": 2.667,
+     "out_end": 3.667
+    },
+    {
+     "src_start": 21,
+     "src_end": 25.2,
+     "speed": 1.2,
+     "out_start": 3.667,
+     "out_end": 7.167
+    },
+    {
+     "src_start": 57,
+     "src_end": 63.22,
+     "speed": 5,
+     "out_start": 6.767,
+     "out_end": 8.011
+    },
+    {
+     "src_start": 63.22,
+     "src_end": 68.02,
+     "speed": 3,
+     "out_start": 8.011,
+     "out_end": 9.611
+    },
+    {
+     "src_start": 68.02,
+     "src_end": 80.02,
+     "speed": 3,
+     "out_start": 9.611,
+     "out_end": 13.611
+    },
+    {
+     "src_start": 80.02,
+     "src_end": 97.42,
+     "speed": 5,
+     "out_start": 13.611,
+     "out_end": 17.091
+    },
+    {
+     "src_start": 97.42,
+     "src_end": 101.44,
+     "speed": 3,
+     "out_start": 17.091,
+     "out_end": 18.431
+    },
+    {
+     "src_start": 101.44,
+     "src_end": 114,
+     "speed": 3,
+     "out_start": 18.431,
+     "out_end": 22.617
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "scene_206_v1__collect_gloveboxes",
+   "scene": "scene_206_v1",
+   "env": "clinic",
+   "task": "collect_gloveboxes",
+   "category": "set_aggregation",
+   "title": "Glove boxes across exam rooms",
+   "experience": {
+    "instruction": "Check the exam room supplies.",
+    "user_text": null
+   },
+   "requests": [
+    {
+     "type": "info",
+     "q": "Boxes of exam gloves sit out in some exam rooms - how many in which rooms?",
+     "a": "Exam room 1: 1, exam room 2: 1, exam room 3: 1",
+     "a_raw": {
+      "exam_room_1": 1,
+      "exam_room_2": 1,
+      "exam_room_3": 1
+     }
+    },
+    {
+     "type": "action",
+     "text": "Gather the boxes of exam gloves from the exam rooms and put them on the supply cart in exam room 1."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_206_v1__collect_gloveboxes.mp4",
+    "poster": "media/sim/scene_206_v1__collect_gloveboxes.jpg",
+    "duration": 24.72,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 6.3
+   },
+   "events": [
+    {
+     "t0": 0.0,
+     "t1": 10.58,
+     "kind": "instruction",
+     "label": "Check the exam room supplies.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.0,
+     "t1": 2.29,
+     "kind": "skill",
+     "label": "navigate_to(exam_room_2)",
+     "ok": true,
+     "region": "exam_room_2"
+    },
+    {
+     "t0": 2.4,
+     "t1": 3.67,
+     "kind": "skill",
+     "label": "navigate_to(utility_cart_0)",
+     "ok": true,
+     "region": "exam_room_4"
+    },
+    {
+     "t0": 3.75,
+     "t1": 6.52,
+     "kind": "skill",
+     "label": "navigate_to(office_chair_1)",
+     "ok": true,
+     "region": "exam_room_3"
+    },
+    {
+     "t0": 6.58,
+     "t1": 10.47,
+     "kind": "skill",
+     "label": "navigate_to(medical_supply_cart_0)",
+     "ok": true,
+     "region": "exam_room_1"
+    },
+    {
+     "t0": 10.58,
+     "t1": 10.58,
+     "kind": "qa",
+     "label": "Boxes of exam gloves sit out in some exam rooms - how many in which rooms?",
+     "answer": "Exam room 1: 1, exam room 2: 1, exam room 3: 1",
+     "answer_raw": {
+      "exam_room_1": 1,
+      "exam_room_2": 1,
+      "exam_room_3": 1
+     },
+     "ok": true
+    },
+    {
+     "t0": 10.58,
+     "t1": 10.58,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Exam room 1: 1, exam room 2: 1, exam room 3: 1",
+     "raw": "{\"exam_room_1\": 1, \"exam_room_2\": 1, \"exam_room_3\": 1}",
+     "ok": true
+    },
+    {
+     "t0": 10.58,
+     "t1": 24.72,
+     "kind": "instruction",
+     "label": "Gather the boxes of exam gloves from the exam rooms and put them on the supply cart in exam room 1.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 10.71,
+     "t1": 12.91,
+     "kind": "skill",
+     "label": "navigate_to(glove_box_0)",
+     "ok": true,
+     "region": "exam_room_2"
+    },
+    {
+     "t0": 12.91,
+     "t1": 15.51,
+     "kind": "skill",
+     "label": "pick(glove_box_0)",
+     "ok": true,
+     "region": "exam_room_2"
+    },
+    {
+     "t0": 15.51,
+     "t1": 17.33,
+     "kind": "skill",
+     "label": "navigate_to(medical_supply_cart_0)",
+     "ok": true,
+     "region": "exam_room_1"
+    },
+    {
+     "t0": 17.33,
+     "t1": 20.08,
+     "kind": "skill",
+     "label": "place(on medical_supply_cart_0)",
+     "ok": true,
+     "region": "exam_room_1"
+    },
+    {
+     "t0": 20.08,
+     "t1": 21.72,
+     "kind": "skill",
+     "label": "navigate_to(exam_gloves_box_0)",
+     "ok": true,
+     "region": "exam_room_3"
+    },
+    {
+     "t0": 21.72,
+     "t1": 24.72,
+     "kind": "skill",
+     "label": "pick(exam_gloves_box_0)",
+     "ok": true,
+     "region": "exam_room_3"
+    }
+   ],
+   "memory": [
+    {
+     "t": 2.29,
+     "src": "media/sim/frames/scene_206_v1__collect_gloveboxes__1.jpg",
+     "caption": "Exam room 2: a glove box (#36) on the far exam table (small, at right).",
+     "src_time": 14.57,
+     "step": 1,
+     "boxes": [
+      {
+       "id": 36,
+       "label": "glove_box_0",
+       "category": "glove_box",
+       "bbox_norm": [
+        0.7234,
+        0.3333,
+        0.7609,
+        0.3625
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "exam_room_2",
+      "objects": [
+       "glove_box in exam_room_2"
+      ]
+     }
+    },
+    {
+     "t": 3.67,
+     "src": "media/sim/frames/scene_206_v1__collect_gloveboxes__2.jpg",
+     "caption": "Exam room 4: no glove box in view.",
+     "src_time": 39.08,
+     "step": 4,
+     "boxes": [],
+     "text_record": {
+      "region": "exam_room_4",
+      "objects": []
+     }
+    },
+    {
+     "t": 6.52,
+     "src": "media/sim/frames/scene_206_v1__collect_gloveboxes__3.jpg",
+     "caption": "Exam room 3: a box of exam gloves (#88) on the desk.",
+     "src_time": 83.06,
+     "step": 6,
+     "boxes": [
+      {
+       "id": 88,
+       "label": "exam_gloves_box_0",
+       "category": "exam_gloves_box",
+       "bbox_norm": [
+        0.2687,
+        0.4917,
+        0.3828,
+        0.575
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "exam_room_3",
+      "objects": [
+       "exam_gloves_box in exam_room_3"
+      ]
+     }
+    },
+    {
+     "t": 10.47,
+     "src": "media/sim/frames/scene_206_v1__collect_gloveboxes__4.jpg",
+     "caption": "Exam room 1: a glove box (#115) in the medical supply cart.",
+     "src_time": 115.66,
+     "step": 8,
+     "boxes": [
+      {
+       "id": 115,
+       "label": "gloves_box_dispenser_0",
+       "category": "gloves_box_dispenser",
+       "bbox_norm": [
+        0.4453,
+        0.4271,
+        0.5141,
+        0.4813
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "exam_room_1",
+      "objects": [
+       "gloves_box_dispenser in exam_room_1"
+      ]
+     }
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 10,
+     "src_end": 15.6,
+     "speed": 2,
+     "out_start": 0,
+     "out_end": 2.8
+    },
+    {
+     "src_start": 34,
+     "src_end": 40.8,
+     "speed": 4,
+     "out_start": 2.4,
+     "out_end": 4.1
+    },
+    {
+     "src_start": 76,
+     "src_end": 84.2,
+     "speed": 2.5,
+     "out_start": 3.7,
+     "out_end": 6.98
+    },
+    {
+     "src_start": 104,
+     "src_end": 117.2,
+     "speed": 3,
+     "out_start": 6.58,
+     "out_end": 10.98
+    },
+    {
+     "src_start": 164,
+     "src_end": 175.66,
+     "speed": 5,
+     "out_start": 10.58,
+     "out_end": 12.912
+    },
+    {
+     "src_start": 175.66,
+     "src_end": 187.66,
+     "speed": 4,
+     "out_start": 12.912,
+     "out_end": 15.912
+    },
+    {
+     "src_start": 238,
+     "src_end": 247.08,
+     "speed": 5,
+     "out_start": 15.512,
+     "out_end": 17.328
+    },
+    {
+     "src_start": 247.08,
+     "src_end": 259.68,
+     "speed": 4,
+     "out_start": 17.328,
+     "out_end": 20.478
+    },
+    {
+     "src_start": 286,
+     "src_end": 292.58,
+     "speed": 4,
+     "out_start": 20.078,
+     "out_end": 21.723
+    },
+    {
+     "src_start": 292.58,
+     "src_end": 304.58,
+     "speed": 4,
+     "out_start": 21.723,
+     "out_end": 24.723
+    }
+   ],
+   "note": "The clip jumps between rooms (cross-dissolves) and between the two gather trips. It ends once the second glove box is in the gripper; its delivery to the cart is not shown."
+  },
+  {
+   "id": "scene_202_v1__pref_client_plant",
+   "scene": "scene_202_v1",
+   "env": "studio",
+   "task": "pref_client_plant",
+   "category": "user_preference",
+   "title": "The client’s favorite plant",
+   "experience": {
+    "instruction": "Continue with your duties.",
+    "user_text": "By the way, the client loved the plant in the purple pot."
+   },
+   "requests": [
+    {
+     "type": "info",
+     "q": "What did I say the client loved?",
+     "a": "The plant (“succulent” is also accepted)",
+     "a_raw": [
+      [
+       "plant"
+      ],
+      [
+       "succulent"
+      ]
+     ]
+    },
+    {
+     "type": "info",
+     "q": "Which room is the client's favorite plant in?",
+     "a": "Dressing room",
+     "a_raw": "dressing_room"
+    },
+    {
+     "type": "action",
+     "text": "Bring me the client's favorite plant. I'm at the coffee table in the client lounge."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_202_v1__pref_client_plant.mp4",
+    "poster": "media/sim/scene_202_v1__pref_client_plant.jpg",
+    "duration": 15.66,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 6.31
+   },
+   "events": [
+    {
+     "t0": 0.2,
+     "t1": 0.21,
+     "kind": "instruction",
+     "label": "Continue with your duties.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.2,
+     "t1": 0.2,
+     "kind": "speech",
+     "speaker": "user",
+     "label": "By the way, the client loved the plant in the purple pot.",
+     "ok": true
+    },
+    {
+     "t0": 0.21,
+     "t1": 0.21,
+     "kind": "qa",
+     "label": "What did I say the client loved?",
+     "answer": "The plant (“succulent” is also accepted)",
+     "answer_raw": [
+      [
+       "plant"
+      ],
+      [
+       "succulent"
+      ]
+     ],
+     "ok": true
+    },
+    {
+     "t0": 0.21,
+     "t1": 0.21,
+     "kind": "qa",
+     "label": "Which room is the client's favorite plant in?",
+     "answer": "Dressing room",
+     "answer_raw": "dressing_room",
+     "ok": true
+    },
+    {
+     "t0": 0.21,
+     "t1": 0.21,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Plant",
+     "raw": "[\"plant\"]",
+     "ok": true
+    },
+    {
+     "t0": 0.21,
+     "t1": 0.21,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Dressing room",
+     "raw": "dressing_room",
+     "ok": true
+    },
+    {
+     "t0": 0.21,
+     "t1": 15.66,
+     "kind": "instruction",
+     "label": "Bring me the client's favorite plant. I'm at the coffee table in the client lounge.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 0.21,
+     "t1": 1.62,
+     "kind": "skill",
+     "label": "navigate(dressing_room)",
+     "ok": true,
+     "region": "dressing_room"
+    },
+    {
+     "t0": 1.62,
+     "t1": 3.75,
+     "kind": "skill",
+     "label": "navigate_to(potted_succulent_plant_4)",
+     "ok": true,
+     "region": "dressing_room"
+    },
+    {
+     "t0": 3.75,
+     "t1": 8.55,
+     "kind": "skill",
+     "label": "pick(potted_succulent_plant_4)",
+     "ok": true,
+     "region": "dressing_room"
+    },
+    {
+     "t0": 8.55,
+     "t1": 10.99,
+     "kind": "skill",
+     "label": "navigate(client_lounge)",
+     "ok": true,
+     "region": "client_lounge"
+    },
+    {
+     "t0": 10.99,
+     "t1": 11.48,
+     "kind": "skill",
+     "label": "navigate_to(coffee_table_0)",
+     "ok": true,
+     "region": "client_lounge"
+    },
+    {
+     "t0": 11.48,
+     "t1": 15.66,
+     "kind": "skill",
+     "label": "place(on coffee_table_0)",
+     "ok": true,
+     "region": "client_lounge"
+    }
+   ],
+   "memory": [
+    {
+     "t": 0.2,
+     "src": null,
+     "kind": "text",
+     "text": "By the way, the client loved the plant in the purple pot.",
+     "caption": "Stored as text: the user’s remark (no image is needed for this information)."
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 0.6,
+     "src_end": 2,
+     "speed": 2,
+     "out_start": 0,
+     "out_end": 0.7
+    },
+    {
+     "src_start": 2,
+     "src_end": 9,
+     "speed": 4,
+     "out_start": 0.7,
+     "out_end": 2.45
+    },
+    {
+     "src_start": 9,
+     "src_end": 11.6,
+     "speed": 2,
+     "out_start": 2.45,
+     "out_end": 3.75
+    },
+    {
+     "src_start": 11.6,
+     "src_end": 23.6,
+     "speed": 2.5,
+     "out_start": 3.75,
+     "out_end": 8.55
+    },
+    {
+     "src_start": 23.6,
+     "src_end": 33.34,
+     "speed": 4,
+     "out_start": 8.55,
+     "out_end": 10.985
+    },
+    {
+     "src_start": 33.34,
+     "src_end": 34.32,
+     "speed": 2,
+     "out_start": 10.985,
+     "out_end": 11.475
+    },
+    {
+     "src_start": 34.32,
+     "src_end": 46.88,
+     "speed": 3,
+     "out_start": 11.475,
+     "out_end": 15.662
+    }
+   ],
+   "note": "The user’s remark is the only event in this experience. Where the purple-pot plant stands was observed earlier, during the scene’s shared tour (not shown)."
+  },
+  {
+   "id": "scene_205_v1__vis_container_reveal",
+   "scene": "scene_205_v1",
+   "env": "home",
+   "task": "vis_container_reveal",
+   "category": "occluded_state",
+   "title": "The wardrobe’s contents",
+   "experience": {
+    "instruction": "Check inside the wardrobe in the first kids' bedroom, then close it again.",
+    "user_text": null
+   },
+   "requests": [
+    {
+     "type": "info",
+     "q": "Two similar items are stored inside the kids' bedroom wardrobe. As you face the wardrobe, what color is the one on the RIGHT?",
+     "a": "Orange",
+     "a_raw": "orange"
+    },
+    {
+     "type": "action",
+     "text": "Bring me the item that was on the RIGHT inside the kids' bedroom wardrobe, as you face it. I'm at the coffee table in the living room."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_205_v1__vis_container_reveal.mp4",
+    "poster": "media/sim/scene_205_v1__vis_container_reveal.jpg",
+    "duration": 28.97,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 8.65
+   },
+   "events": [
+    {
+     "t0": 0.0,
+     "t1": 12.44,
+     "kind": "instruction",
+     "label": "Check inside the wardrobe in the first kids' bedroom, then close it again.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.0,
+     "t1": 1.69,
+     "kind": "skill",
+     "label": "navigate_to(kids_bedroom_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 1.69,
+     "t1": 3.46,
+     "kind": "skill",
+     "label": "navigate_to(wardrobe_0)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 3.46,
+     "t1": 4.46,
+     "kind": "skill",
+     "label": "open(wardrobe_0, door_up)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 4.46,
+     "t1": 5.46,
+     "kind": "skill",
+     "label": "open(wardrobe_0, door_up_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 5.46,
+     "t1": 8.72,
+     "kind": "skill",
+     "label": "navigate_to(rolled_knit_scarf_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 8.72,
+     "t1": 10.19,
+     "kind": "skill",
+     "label": "close(wardrobe_0, door_up_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 10.19,
+     "t1": 11.19,
+     "kind": "skill",
+     "label": "close(wardrobe_0, door_up)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 11.19,
+     "t1": 12.44,
+     "kind": "skill",
+     "label": "navigate_to(hallway)",
+     "ok": true,
+     "region": "hallway"
+    },
+    {
+     "t0": 12.44,
+     "t1": 12.44,
+     "kind": "qa",
+     "label": "Two similar items are stored inside the kids' bedroom wardrobe. As you face the wardrobe, what color is the one on the RIGHT?",
+     "answer": "Orange",
+     "answer_raw": "orange",
+     "ok": true
+    },
+    {
+     "t0": 12.44,
+     "t1": 12.44,
+     "kind": "speech",
+     "speaker": "robot",
+     "label": "Orange",
+     "raw": "orange",
+     "ok": true
+    },
+    {
+     "t0": 12.44,
+     "t1": 28.97,
+     "kind": "instruction",
+     "label": "Bring me the item that was on the RIGHT inside the kids' bedroom wardrobe, as you face it. I'm at the coffee table in the living room.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 12.44,
+     "t1": 13.21,
+     "kind": "skill",
+     "label": "navigate(kids_bedroom_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 13.21,
+     "t1": 14.97,
+     "kind": "skill",
+     "label": "navigate_to(wardrobe_0)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 14.97,
+     "t1": 15.77,
+     "kind": "skill",
+     "label": "open(wardrobe_0, door_up)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 15.77,
+     "t1": 16.57,
+     "kind": "skill",
+     "label": "open(wardrobe_0, door_up_1)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 16.57,
+     "t1": 17.54,
+     "kind": "skill",
+     "label": "navigate_to(rolled_knit_scarf_0)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 17.54,
+     "t1": 22.25,
+     "kind": "skill",
+     "label": "pick(rolled_knit_scarf_0)",
+     "ok": true,
+     "region": "kids_bedroom_1"
+    },
+    {
+     "t0": 22.25,
+     "t1": 25.09,
+     "kind": "skill",
+     "label": "navigate(living_room)",
+     "ok": true,
+     "region": "living_room"
+    },
+    {
+     "t0": 25.09,
+     "t1": 25.85,
+     "kind": "skill",
+     "label": "navigate_to(coffee_table_0)",
+     "ok": true,
+     "region": "living_room"
+    },
+    {
+     "t0": 25.85,
+     "t1": 28.97,
+     "kind": "skill",
+     "label": "place(on coffee_table_0)",
+     "ok": true,
+     "region": "living_room"
+    }
+   ],
+   "memory": [
+    {
+     "t": 5.46,
+     "src": "media/sim/frames/scene_205_v1__vis_container_reveal__1.jpg",
+     "caption": "Second door opening: only a corner of the red scarf (#92) shows so far.",
+     "src_time": 21.63,
+     "step": 4,
+     "boxes": [
+      {
+       "id": 92,
+       "label": "rolled_knit_scarf_1",
+       "category": "rolled_knit_scarf",
+       "bbox_norm": [
+        0.1531,
+        0.4104,
+        0.1844,
+        0.4854
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kids_bedroom_1",
+      "objects": [
+       "rolled_knit_scarf in kids_bedroom_1",
+       "rolled_knit_scarf in kids_bedroom_1"
+      ]
+     }
+    },
+    {
+     "t": 8.72,
+     "src": "media/sim/frames/scene_205_v1__vis_container_reveal__2.jpg",
+     "caption": "Doors open: a red scarf (#92) on the left and an orange scarf (#39) on the right.",
+     "src_time": 25.34,
+     "step": 5,
+     "boxes": [
+      {
+       "id": 39,
+       "label": "rolled_knit_scarf_0",
+       "category": "rolled_knit_scarf",
+       "bbox_norm": [
+        0.6266,
+        0.4062,
+        0.7531,
+        0.5021
+       ]
+      },
+      {
+       "id": 92,
+       "label": "rolled_knit_scarf_1",
+       "category": "rolled_knit_scarf",
+       "bbox_norm": [
+        0.4484,
+        0.3917,
+        0.55,
+        0.4813
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "kids_bedroom_1",
+      "objects": [
+       "rolled_knit_scarf in kids_bedroom_1",
+       "rolled_knit_scarf in kids_bedroom_1"
+      ]
+     }
+    },
+    {
+     "t": 11.19,
+     "src": "media/sim/frames/scene_205_v1__vis_container_reveal__3.jpg",
+     "caption": "Doors closed again: the contents are no longer visible.",
+     "src_time": 29.34,
+     "step": 7,
+     "boxes": [],
+     "text_record": {
+      "region": "kids_bedroom_1",
+      "objects": [
+       "rolled_knit_scarf in kids_bedroom_1",
+       "rolled_knit_scarf in kids_bedroom_1"
+      ]
+     }
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 3,
+     "src_end": 11.5,
+     "speed": 6,
+     "out_start": 0,
+     "out_end": 1.417
+    },
+    {
+     "src_start": 11.5,
+     "src_end": 17.64,
+     "speed": 3,
+     "out_start": 1.417,
+     "out_end": 3.463
+    },
+    {
+     "src_start": 17.64,
+     "src_end": 21.64,
+     "speed": 2,
+     "out_start": 3.463,
+     "out_end": 5.463
+    },
+    {
+     "src_start": 21.64,
+     "src_end": 24.55,
+     "speed": 1.5,
+     "out_start": 5.463,
+     "out_end": 7.403
+    },
+    {
+     "src_start": 24.55,
+     "src_end": 25.45,
+     "speed": 0.6,
+     "out_start": 7.403,
+     "out_end": 8.903
+    },
+    {
+     "src_start": 25.45,
+     "src_end": 26.6,
+     "speed": 1.25,
+     "out_start": 8.903,
+     "out_end": 9.823
+    },
+    {
+     "src_start": 26.6,
+     "src_end": 29.34,
+     "speed": 2,
+     "out_start": 9.823,
+     "out_end": 11.193
+    },
+    {
+     "src_start": 29.34,
+     "src_end": 41.42,
+     "speed": 6,
+     "out_start": 11.193,
+     "out_end": 13.207
+    },
+    {
+     "src_start": 41.42,
+     "src_end": 46.72,
+     "speed": 3,
+     "out_start": 13.207,
+     "out_end": 14.973
+    },
+    {
+     "src_start": 46.72,
+     "src_end": 50.72,
+     "speed": 2.5,
+     "out_start": 14.973,
+     "out_end": 16.573
+    },
+    {
+     "src_start": 50.72,
+     "src_end": 55,
+     "speed": 2.5,
+     "out_start": 16.573,
+     "out_end": 18.285
+    },
+    {
+     "src_start": 55,
+     "src_end": 60,
+     "speed": 2,
+     "out_start": 18.285,
+     "out_end": 20.785
+    },
+    {
+     "src_start": 60,
+     "src_end": 65.14,
+     "speed": 3.5,
+     "out_start": 20.785,
+     "out_end": 22.254
+    },
+    {
+     "src_start": 65.14,
+     "src_end": 82.14,
+     "speed": 6,
+     "out_start": 22.254,
+     "out_end": 25.087
+    },
+    {
+     "src_start": 82.14,
+     "src_end": 84.44,
+     "speed": 3,
+     "out_start": 25.087,
+     "out_end": 25.854
+    },
+    {
+     "src_start": 84.44,
+     "src_end": 96.9,
+     "speed": 4,
+     "out_start": 25.854,
+     "out_end": 28.969
+    }
+   ],
+   "note": null
+  },
+  {
+   "id": "scene_206_v1__proc_pharmacy_return",
+   "scene": "scene_206_v1",
+   "env": "clinic",
+   "task": "proc_pharmacy_return",
+   "category": "skill_outcome",
+   "title": "Re-shelving the pill bottle",
+   "experience": {
+    "instruction": "Take the prescription bottle and the pill bottle from the pharmacy shelving to the counter. Then return the prescription bottle to where you took it from. Actually, on second thought, bring it back to the counter too.",
+    "user_text": null
+   },
+   "requests": [
+    {
+     "type": "action",
+     "text": "Return the pill bottle on the pharmacy counter to where you took it from."
+    }
+   ],
+   "video": {
+    "src": "media/sim/scene_206_v1__proc_pharmacy_return.mp4",
+    "poster": "media/sim/scene_206_v1__proc_pharmacy_return.jpg",
+    "duration": 34.71,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "poster_t": 2.5
+   },
+   "events": [
+    {
+     "t0": 0.0,
+     "t1": 25.79,
+     "kind": "instruction",
+     "label": "Take the prescription bottle and the pill bottle from the pharmacy shelving to the counter. Then return the prescription bottle to where you took it from. Actually, on second thought, bring it back to the counter too.",
+     "role": "setup",
+     "ok": true
+    },
+    {
+     "t0": 0.0,
+     "t1": 0.57,
+     "kind": "skill",
+     "label": "navigate_to(pharmacy)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 0.57,
+     "t1": 2.74,
+     "kind": "skill",
+     "label": "navigate_to(prescription_pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 2.74,
+     "t1": 5.14,
+     "kind": "skill",
+     "label": "pick(prescription_pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 5.14,
+     "t1": 5.77,
+     "kind": "skill",
+     "label": "navigate_to(reception_desk_1)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 5.77,
+     "t1": 7.87,
+     "kind": "skill",
+     "label": "place(on reception_desk_1)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 7.87,
+     "t1": 8.34,
+     "kind": "skill",
+     "label": "navigate_to(pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 8.34,
+     "t1": 10.74,
+     "kind": "skill",
+     "label": "pick(pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 10.74,
+     "t1": 11.37,
+     "kind": "skill",
+     "label": "navigate_to(reception_desk_1)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 11.37,
+     "t1": 13.47,
+     "kind": "skill",
+     "label": "place(on reception_desk_1)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 13.47,
+     "t1": 13.76,
+     "kind": "skill",
+     "label": "navigate_to(prescription_pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 13.76,
+     "t1": 16.16,
+     "kind": "skill",
+     "label": "pick(prescription_pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 16.16,
+     "t1": 17.1,
+     "kind": "skill",
+     "label": "navigate_to(shelving_unit_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 17.1,
+     "t1": 17.1,
+     "kind": "skill",
+     "label": "place(on shelving_unit_0) fails (scripted)",
+     "ok": false,
+     "region": "pharmacy",
+     "note": "Scripted experience event: this placement variant has no effect here, so the robot switches to another variant."
+    },
+    {
+     "t0": 17.1,
+     "t1": 21.31,
+     "kind": "skill",
+     "label": "place(in shelving_unit_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 21.31,
+     "t1": 23.31,
+     "kind": "skill",
+     "label": "pick(prescription_pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 23.31,
+     "t1": 23.94,
+     "kind": "skill",
+     "label": "navigate_to(reception_desk_1)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 23.94,
+     "t1": 25.79,
+     "kind": "skill",
+     "label": "place(on reception_desk_1)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 25.79,
+     "t1": 34.71,
+     "kind": "instruction",
+     "label": "Return the pill bottle on the pharmacy counter to where you took it from.",
+     "role": "evaluation",
+     "ok": true
+    },
+    {
+     "t0": 25.79,
+     "t1": 27.64,
+     "kind": "skill",
+     "label": "navigate_to(pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 27.64,
+     "t1": 30.64,
+     "kind": "skill",
+     "label": "pick(pill_bottle_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 30.64,
+     "t1": 31.15,
+     "kind": "skill",
+     "label": "navigate_to(shelving_unit_0)",
+     "ok": true,
+     "region": "pharmacy"
+    },
+    {
+     "t0": 31.15,
+     "t1": 34.71,
+     "kind": "skill",
+     "label": "place(in shelving_unit_0)",
+     "ok": true,
+     "region": "pharmacy"
+    }
+   ],
+   "memory": [
+    {
+     "t": 2.74,
+     "src": "media/sim/frames/scene_206_v1__proc_pharmacy_return__1.jpg",
+     "caption": "Pharmacy shelving: the prescription bottle (#40) and the pill bottle (#49) both start on the shelf.",
+     "src_time": 35.94,
+     "step": 2,
+     "boxes": [
+      {
+       "id": 49,
+       "label": "pill_bottle_0",
+       "category": "pill_bottle",
+       "bbox_norm": [
+        0.375,
+        0.4458,
+        0.4203,
+        0.5458
+       ]
+      },
+      {
+       "id": 40,
+       "label": "prescription_pill_bottle_0",
+       "category": "prescription_pill_bottle",
+       "bbox_norm": [
+        0.3063,
+        0.4375,
+        0.3516,
+        0.5437
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "pharmacy",
+      "objects": [
+       "pill_bottle in pharmacy",
+       "prescription_pill_bottle in pharmacy"
+      ]
+     }
+    },
+    {
+     "t": 13.47,
+     "src": "media/sim/frames/scene_206_v1__proc_pharmacy_return__2.jpg",
+     "caption": "Both bottles now stand on the pharmacy counter (#34).",
+     "src_time": 95.55,
+     "step": 9,
+     "boxes": [
+      {
+       "id": 49,
+       "label": "pill_bottle_0",
+       "category": "pill_bottle",
+       "bbox_norm": [
+        0.4469,
+        0.4479,
+        0.4828,
+        0.5354
+       ]
+      },
+      {
+       "id": 40,
+       "label": "prescription_pill_bottle_0",
+       "category": "prescription_pill_bottle",
+       "bbox_norm": [
+        0.6109,
+        0.4437,
+        0.6562,
+        0.5375
+       ]
+      }
+     ],
+     "text_record": {
+      "region": "pharmacy",
+      "objects": [
+       "pill_bottle in pharmacy",
+       "prescription_pill_bottle in pharmacy"
+      ]
+     }
+    },
+    {
+     "t": 17.1,
+     "src": "media/sim/frames/scene_206_v1__proc_pharmacy_return__3.jpg",
+     "caption": "Returning the prescription bottle: the scripted place(on shelving_unit_0) fails; the bottle (#40, bottom left) is still in the gripper.",
+     "src_time": 112.12,
+     "step": 13,
+     "boxes": [],
+     "text_record": {
+      "region": "pharmacy",
+      "objects": [
+       "pill_bottle in pharmacy"
+      ]
+     }
+    },
+    {
+     "t": 21.31,
+     "src": "media/sim/frames/scene_206_v1__proc_pharmacy_return__4.jpg",
+     "caption": "After place(in shelving_unit_0): the gripper is empty; the bottle went into the shelving, below the view.",
+     "src_time": 124.72,
+     "step": 14,
+     "boxes": [],
+     "text_record": {
+      "region": "pharmacy",
+      "objects": [
+       "pill_bottle in pharmacy",
+       "prescription_pill_bottle in pharmacy"
+      ]
+     }
+    }
+   ],
+   "segments": [
+    {
+     "src_start": 25,
+     "src_end": 27.26,
+     "speed": 4,
+     "out_start": 0,
+     "out_end": 0.565
+    },
+    {
+     "src_start": 27.26,
+     "src_end": 35.94,
+     "speed": 4,
+     "out_start": 0.565,
+     "out_end": 2.735
+    },
+    {
+     "src_start": 35.94,
+     "src_end": 47.94,
+     "speed": 5,
+     "out_start": 2.735,
+     "out_end": 5.135
+    },
+    {
+     "src_start": 47.94,
+     "src_end": 67.18,
+     "speed": 6,
+     "out_start": 5.135,
+     "out_end": 8.342
+    },
+    {
+     "src_start": 67.18,
+     "src_end": 79.18,
+     "speed": 5,
+     "out_start": 8.342,
+     "out_end": 10.742
+    },
+    {
+     "src_start": 79.18,
+     "src_end": 97.28,
+     "speed": 6,
+     "out_start": 10.742,
+     "out_end": 13.758
+    },
+    {
+     "src_start": 97.28,
+     "src_end": 109.28,
+     "speed": 5,
+     "out_start": 13.758,
+     "out_end": 16.158
+    },
+    {
+     "src_start": 109.28,
+     "src_end": 112.12,
+     "speed": 3,
+     "out_start": 16.158,
+     "out_end": 17.105
+    },
+    {
+     "src_start": 112.12,
+     "src_end": 124.72,
+     "speed": 3,
+     "out_start": 17.105,
+     "out_end": 21.305
+    },
+    {
+     "src_start": 124.72,
+     "src_end": 154,
+     "speed": 6,
+     "out_start": 21.305,
+     "out_end": 26.185
+    },
+    {
+     "src_start": 177.5,
+     "src_end": 186.76,
+     "speed": 5,
+     "out_start": 25.785,
+     "out_end": 27.637
+    },
+    {
+     "src_start": 186.76,
+     "src_end": 198.76,
+     "speed": 4,
+     "out_start": 27.637,
+     "out_end": 30.637
+    },
+    {
+     "src_start": 198.76,
+     "src_end": 213,
+     "speed": 3.5,
+     "out_start": 30.637,
+     "out_end": 34.706
+    }
+   ],
+   "note": "During the experience, place(on shelving_unit_0) is scripted to fail at once, without motion, so the robot uses place(in) on the same shelving instead. The walk to the corridor and back before the request is cut."
+  }
+ ]
+}
